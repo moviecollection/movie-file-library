@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
+    <Authors>Peyman Mohammadi</Authors>
+    <Copyright>© 2018 Peyman Mohammadi</Copyright>
+    <PackageLicenseUrl>https://github.com/peymanr34/moviefilelibrary/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/peymanr34/moviefilelibrary</RepositoryUrl>
+    <PackageReleaseNotes>First Release</PackageReleaseNotes>
+    <PackageTags>movie</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>
