@@ -1,3 +1,6 @@
+[![Nuget Version](https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat)](https://www.nuget.org/packages/MovieFileLibrary)
+[![License](https://img.shields.io/github/license/peymanr34/MovieFileLibrary.svg?style=flat)](LICENSE)
+
 # Movie File Library
 Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.
 
