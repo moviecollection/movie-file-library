@@ -6,9 +6,19 @@ Movie File Library is a simple C# library that helps you to get basic movie/seri
 
 ## Built With
 - Visual Studio Community 2017
-- Target Framework: .Net Standard 1.0 
 - Testing: xUnit [.Net Core 2.2]
 - Demo: .Net Core 2.2
+
+## Target Frameworks
+- .Net Standard 1.0
+- .Net Standard 2.0
+- .Net Framework 4.5.1
+
+## NuGet Package
+If you like to use ```Movie File Library``` right out of the box use following command in your ```NuGet Package Manager Console```:
+```
+Install-Package MovieFileLibrary
+```
 
 ## How to Use
 
@@ -27,7 +37,7 @@ MovieFileLibrary.MovieDetector movieDetector = new MovieFileLibrary.MovieDetecto
 string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S01.E01.avi";
 
 // Call GetInfo to process file name and return a result
-MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(fileInfo);
+MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
 
 // Print Results
 Console.WriteLine("Name: {0}", movieFile.Name);
@@ -49,7 +59,7 @@ Console.ReadKey();
 ```
 
 ## Contributing
-If you are interested in writing your own Method you can use ```IDetectMethod``` interface like this example:
+If you are interested in writing your own Detect Method you can use ```IDetectMethod``` interface like this example:
 
 ```csharp
 public class CustomMethod : IDetectMethod
@@ -87,8 +97,12 @@ public class CustomMethod : IDetectMethod
 }
 ```
 
-## Feedback
-If you encountered a problem please let me know in the issues 
+## Change Log
+**v1.0.1**
+- Added target frameworks to avoid downloading huge amount of dependencies via NuGet.
+
+## Contributing
+If you encountered a problem or you have a better idea please let me know in the issues .
 
 ## License
 This project is licensed under the [MIT License](https://github.com/peymanr34/moviefilelibrary/blob/master/LICENSE).
