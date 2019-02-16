@@ -4,12 +4,12 @@
 # Movie File Library
 Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.
 
-## Built With
+## Built with
 - Visual Studio Community 2017
 - Testing: xUnit [.Net Core 2.2]
 - Demo: .Net Core 2.2
 
-## Target Frameworks
+## Target frameworks
 - .Net Standard 1.0
 - .Net Standard 2.0
 - .Net Framework 4.5.1
@@ -20,7 +20,7 @@ If you like to use ```Movie File Library``` right out of the box use following c
 Install-Package MovieFileLibrary
 ```
 
-## How to Use
+## How to use
 
 ```csharp
 // You should specify a Detect Method
@@ -34,7 +34,7 @@ MovieFileLibrary.DefaultMethod method = new MovieFileLibrary.DefaultMethod();
 MovieFileLibrary.MovieDetector movieDetector = new MovieFileLibrary.MovieDetector(method);
 
 // Define a test file path
-string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S01.E01.avi";
+string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S03.E04.avi";
 
 // Call GetInfo to process file name and return a result
 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
@@ -57,8 +57,18 @@ Console.WriteLine("Success: {0}", movieFile.Success);
 Console.WriteLine("Press Any Key To Exit...");
 Console.ReadKey();
 ```
+### Result:
+```
+Name: Monty Pythons Flying Circus
+Year: null
+IsSeries: True
+Season: 3
+Episode: 4
+FilePath: D:\Monty Python's Flying Circus\Season 1\Monty.Pythons.Flying.Circus.S03.E04.avi
+Success: True
+```
 
-## Contributing
+## Have a better idea?
 If you are interested in writing your own Detect Method you can use ```IDetectMethod``` interface like this example:
 
 ```csharp
@@ -97,7 +107,7 @@ public class CustomMethod : IDetectMethod
 }
 ```
 
-## Change Log
+## Change log
 **v1.0.1**
 - Added target frameworks to avoid downloading huge amount of dependencies via NuGet.
 
