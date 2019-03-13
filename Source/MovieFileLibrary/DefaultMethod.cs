@@ -38,7 +38,7 @@
                 string[] words = value.Split('.');
 
                 // Choose First Word as Name
-                movieFile.Name = words[0];
+                movieFile.Title = words[0];
 
                 // Set Defaults
                 movieFile.Year = null;
@@ -119,7 +119,7 @@
                     else
                     {
                         // if current word is non of cases so [probably] is part of movie name
-                        movieFile.Name += " " + item;
+                        movieFile.Title += " " + item;
                     }
                 }
 

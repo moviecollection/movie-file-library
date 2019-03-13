@@ -15,7 +15,7 @@ Movie File Library is a simple C# library that helps you to get basic movie/seri
 - .Net Framework 4.5.1
 
 ## NuGet Package
-If you like to use ```Movie File Library``` right out of the box use following command in your ```NuGet Package Manager Console```:
+If you like to use ```Movie File Library``` right out of the box enter following command in your ```NuGet Package Manager Console```:
 ```
 Install-Package MovieFileLibrary
 ```
@@ -40,7 +40,7 @@ string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Fly
 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
 
 // Print Results
-Console.WriteLine("Name: {0}", movieFile.Name);
+Console.WriteLine("Title: {0}", movieFile.Title);
 Console.WriteLine("Year: {0}", movieFile.Year);
     
 if(movieFile.IsSeries)
@@ -59,7 +59,7 @@ Console.ReadKey();
 ```
 ### Result:
 ```
-Name: Monty Pythons Flying Circus
+Title: Monty Pythons Flying Circus
 Year: null
 IsSeries: True
 Season: 3
@@ -108,6 +108,9 @@ public class CustomMethod : IDetectMethod
 ```
 
 ## Change log
+**v1.0.2**
+- Change ```Name``` property to ```Title``` to avoid confusion.
+
 **v1.0.1**
 - Added target frameworks to avoid downloading huge amount of dependencies via NuGet.
 

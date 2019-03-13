@@ -46,14 +46,14 @@ namespace MovieFileLibrary.Tests
         [InlineData("Seinfeld.S10E17E18.720p.mkv", "Seinfeld", null, true, 10, 17)]
         // Series With Year Before Season And Episodes
         [InlineData("Twisted.2013.S06E19.mp4", "Twisted", "2013", true, 6, 19)]
-        public void TestTheDefaultMethod(string filePath, string name, string year, bool isSeries, int? season, int? episode)
+        public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
             // Get Info
             MovieFile movieFile = _MovieDetector.GetInfo(filePath);
 
             // Assert
             Assert.True(movieFile.Success);
-            Assert.Equal(expected: name, actual: movieFile.Name);
+            Assert.Equal(expected: title, actual: movieFile.Title);
             Assert.Equal(expected: year, actual: movieFile.Year);
 
             Assert.Equal(expected: isSeries, actual: movieFile.IsSeries);

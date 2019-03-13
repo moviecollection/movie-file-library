@@ -15,9 +15,9 @@
         }
 
         /// <summary>
-        /// Movie Name
+        /// Movie Title
         /// </summary>
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Movie Year

@@ -33,7 +33,7 @@ namespace Demo
                 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(file);
 
                 // Print Results
-                Console.WriteLine("Name: {0}", movieFile.Name);
+                Console.WriteLine("Title: {0}", movieFile.Title);
                 Console.WriteLine("Year: {0}", movieFile.Year);
 
                 if (movieFile.IsSeries)
