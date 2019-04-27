@@ -51,6 +51,7 @@ if(movieFile.IsSeries)
 }
 
 Console.WriteLine("FilePath: {0}", movieFile.FilePath);
+Console.WriteLine("FileExtension: {0}", movieFile.FileExtension);
 Console.WriteLine("Success: {0}", movieFile.Success);   
 
 // Wait for user to press a key to exit
@@ -65,10 +66,11 @@ IsSeries: True
 Season: 3
 Episode: 4
 FilePath: D:\Monty Python's Flying Circus\Season 1\Monty.Pythons.Flying.Circus.S03.E04.avi
+FileExtension: .avi
 Success: True
 ```
 
-## Have a better idea?
+## Got a better idea?
 If you are interested in writing your own Detect Method you can use ```IDetectMethod``` interface like this example:
 
 ```csharp
@@ -81,8 +83,8 @@ public class CustomMethod : IDetectMethod
     /// <returns>MovieFile model with basic info regarding the movie</returns>
     public MovieFile GetInfo(string filePath)
     {
-        // Create a MovieFile object and set the filePath via constractor
-        MovieFile movieFile = new MovieFile(fileInfo.FullName);
+        // Create a MovieFile object and set the filePath using constractor
+        MovieFile movieFile = new MovieFile(filePath);
 
         try
         {
@@ -108,6 +110,9 @@ public class CustomMethod : IDetectMethod
 ```
 
 ## Change log
+**v1.0.3**
+- Added ```FileExtension``` property.
+
 **v1.0.2**
 - Change ```Name``` property to ```Title``` to avoid confusion.
 
@@ -118,4 +123,4 @@ public class CustomMethod : IDetectMethod
 If you encountered a problem or you have a better idea please let me know in the issues .
 
 ## License
-This project is licensed under the [MIT License](https://github.com/peymanr34/moviefilelibrary/blob/master/LICENSE).
+This project is licensed under the [MIT License](LICENSE).

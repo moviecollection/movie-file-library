@@ -12,6 +12,7 @@
         public MovieFile(string filepath) : base()
         {
             FilePath = filepath;
+            FileExtension = System.IO.Path.GetExtension(filepath);
         }
 
         /// <summary>
@@ -48,5 +49,10 @@
         /// File Path
         /// </summary>
         public string FilePath { get; private set; }
+
+        /// <summary>
+        /// Extension of File
+        /// </summary>
+        public string FileExtension { get; private set; }
     }
 }
