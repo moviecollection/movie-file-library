@@ -4,10 +4,10 @@
     <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
     <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
     <Authors>Peyman Mohammadi</Authors>
-    <Copyright>© 2018 Peyman Mohammadi</Copyright>
+    <Copyright>© 2019 Peyman Mohammadi</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
-    <RepositoryUrl>https://github.com/peymanr34/moviefilelibrary</RepositoryUrl>
+    <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
     <PackageReleaseNotes>Added FileExtension property.</PackageReleaseNotes>
     <PackageTags>movie</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
