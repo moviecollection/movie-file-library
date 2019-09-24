@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MovieFileLibrary
 {
@@ -27,7 +28,7 @@ namespace MovieFileLibrary
                 string value = System.IO.Path.GetFileNameWithoutExtension(FileName).Replace(" ", ".");
 
                 // Remove Extra Characters
-                string[] removeStrs = new[] { "(", ")", "_", "-", ".." };
+                string[] removeStrs = new[] { "(", ")", "_", "-", "..", "–", "[", "]" };
                 foreach (string item in removeStrs)
                 {
                     if (value.Contains(item))
@@ -63,7 +64,22 @@ namespace MovieFileLibrary
                     // Check if current word is a Year value or a Season value or a Episode value
                     if (IsYear(item))
                     {
-                        movieFile.Year = item;
+                        // Check for movies with year in name [e.g The Legend of 1900 (1998)]
+                        // Skip first item to avoid issues with movies like "2001: A Space Odyssey (1968)"
+                        // Also Skip current item and get the last one.
+                        string lastYear = words.Skip(1).Where(x => IsYear(x) && x != item).LastOrDefault();
+
+                        if (lastYear is null)
+                        {
+                            // We don't have another year in filename, so we use the current one
+                            movieFile.Year = item;
+                        }
+                        else
+                        {
+                            // We have another year therefore treat current item as part of movie title
+                            movieFile.Year = lastYear;
+                            movieFile.Title += " " + item;
+                        }
 
                         // For cases that we have year in series file name!
                         if (!IsSeasonPresent(words) && !IsEpisodePresent(words))
@@ -144,7 +160,7 @@ namespace MovieFileLibrary
 
         private static bool IsYear(string item)
         {
-            return System.Text.RegularExpressions.Regex.IsMatch(item, "^(19|20)[0-9][0-9]");
+            return Regex.IsMatch(item, "^(19|20)[0-9][0-9]");
         }
 
         /// <summary>

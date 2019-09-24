@@ -16,10 +16,11 @@ namespace MovieFileLibrary.Tests
         [Theory]
         // Movie With Year
         [InlineData("The.Spy.Who.Dumped.Me.2018.BluRay.1080p.5.1CH.x264.mkv", "The Spy Who Dumped Me", "2018", false, null, null)]
-        // Movie With Year In Name And Year
+        // Movies With Year In Name And Year
+        [InlineData("The Legend of 1900 (1998).mkv", "The Legend of 1900", "1998", false, null, null)]
+        [InlineData("2001.A.Space.Odyssey.1968.1080p.BluRay.6CH.x265.HEVC.mkv", "2001 A Space Odyssey", "1968", false, null, null)]
+        [InlineData("Happythankyoumoreplease.2010.mkv", "Happythankyoumoreplease", "2010", false, null, null)]
         [InlineData("Blade.Runner.Black.Out.2022.2017.720p.BluRay.x264.mkv", "Blade Runner Black Out 2022", "2017", false, null, null)]
-        // Movie NoSeperator Name
-        [InlineData("CaptainAmericaTheWinterSoldier-2014-1080p.mkv", "Captain America The Winter Soldier", "2014", false, null, null)]
         // Series Season And Episode
         [InlineData("True.Detective.S02E07.720p.mkv", "True Detective", null, true, 2, 7)]
         // Series One Char Season
@@ -46,6 +47,8 @@ namespace MovieFileLibrary.Tests
         [InlineData("Seinfeld.S10E17E18.720p.mkv", "Seinfeld", null, true, 10, 17)]
         // Series With Year Before Season And Episodes
         [InlineData("Twisted.2013.S06E19.mp4", "Twisted", "2013", true, 6, 19)]
+        // Series With Episode Name
+        [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4", "Sherlock", null, true, 3, 2)]
         public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
             // Get Info
