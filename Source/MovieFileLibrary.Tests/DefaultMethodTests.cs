@@ -32,11 +32,11 @@ namespace MovieFileLibrary.Tests
         [InlineData("True.Detective.S02.720p.mkv", "True Detective", null, true, 2, 1)]
         // Series Only Episode
         [InlineData("True.Detective.E05.720p.mkv", "True Detective", null, true, 1, 5)]
-        // Series Seperate Episode And Series
+        // Series Separate Episode And Series
         [InlineData("Modern.Family.S02.E24.720p.mkv", "Modern Family", null, true, 2, 24)]
-        // Series Seperate No Dots
+        // Series Separate No Dots
         [InlineData("Friends S08 E17 720p.mkv", "Friends", null, true, 8, 17)]
-        // Series Seperate No Dots Episode One Char
+        // Series Separate No Dots Episode One Char
         [InlineData("The Walking Dead S05E9.avi", "The Walking Dead", null, true, 5, 9)]
         // Series Underline
         [InlineData("13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv", "13 Reasons Why", null, true, 2, 4)]

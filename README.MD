@@ -25,7 +25,7 @@ Install-Package MovieFileLibrary
 // You should specify a Detect Method
 // Detect Method is the way this library gets info from a movie file
 // If you don't like the default method you can write your own
-// If you written one it would be awasome if you share it on GitHub
+// If you written one it would be awesome if you share it on GitHub
 MovieFileLibrary.DefaultMethod method = new MovieFileLibrary.DefaultMethod();
 
 // Create Movie Detector Library object
@@ -78,11 +78,11 @@ public class CustomMethod : IDetectMethod
     /// <summary>
     /// Gets movie info from file
     /// </summary>
-    /// <param name="filePath">a string contaning file path</param>
+    /// <param name="filePath">a string containing file path</param>
     /// <returns>MovieFile model with basic info regarding the movie</returns>
     public MovieFile GetInfo(string filePath)
     {
-        // Create a MovieFile object and set the filePath using constractor
+        // Create a MovieFile object and set the filePath using constructor
         MovieFile movieFile = new MovieFile(filePath);
 
         try
@@ -119,7 +119,7 @@ public class CustomMethod : IDetectMethod
 - Added target frameworks to avoid downloading huge amount of dependencies via NuGet.
 
 ## Contributing
-If you encountered a problem or you have a better idea please let me know in the issues .
+If you encountered a problem or you have any suggestions please let me know in the issues.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).

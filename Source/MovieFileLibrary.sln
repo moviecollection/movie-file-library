@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFileLibrary", "MovieFileLibrary\MovieFileLibrary.csproj", "{FD4F582E-9B1A-44D4-8141-723CCE3DFB9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieFileLibrary", "MovieFileLibrary\MovieFileLibrary.csproj", "{FD4F582E-9B1A-44D4-8141-723CCE3DFB9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFileLibrary.Tests", "MovieFileLibrary.Tests\MovieFileLibrary.Tests.csproj", "{2EF29110-E5EF-40B8-A46D-477CCB7E8C9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieFileLibrary.Tests", "MovieFileLibrary.Tests\MovieFileLibrary.Tests.csproj", "{2EF29110-E5EF-40B8-A46D-477CCB7E8C9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{40FB9ED8-088C-4727-A4F8-494318D8FB73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{40FB9ED8-088C-4727-A4F8-494318D8FB73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D00E7421-6DA6-4BC0-B9B3-54A28032F5CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.MD = ..\README.MD
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

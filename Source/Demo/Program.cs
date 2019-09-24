@@ -4,12 +4,12 @@ namespace Demo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // You should specify a Detect Method
             // Detect Method is the way this library gets info from a movie file
             // If you don't like the default method you can write your own
-            // If you written one it would be awasome if you share it on GitHub
+            // If you written one it would be awesome if you share it on GitHub
             MovieFileLibrary.DefaultMethod method = new MovieFileLibrary.DefaultMethod();
 
             // Create Movie Detector Library object

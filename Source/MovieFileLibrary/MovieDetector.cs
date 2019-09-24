@@ -29,7 +29,7 @@
         }
 
         /// <summary>
-        /// Get movie info from file using defined dectector
+        /// Get movie info from file using defined Detector
         /// </summary>
         /// <param name="filePath">a string contaning file path</param>
         /// <returns>MovieFile model with basic info regarding the movie</returns>
