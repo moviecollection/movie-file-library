@@ -1,4 +1,6 @@
 [![Nuget Version](https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat)](https://www.nuget.org/packages/MovieFileLibrary)
+![Nuget Version Pre](https://img.shields.io/nuget/vpre/MovieFileLibrary?style=flat)
+![Nuget Downloads](https://img.shields.io/nuget/dt/MovieFileLibrary?color=red)
 [![License](https://img.shields.io/github/license/peymanr34/movie-file-library.svg?style=flat)](LICENSE)
 
 # Movie File Library
@@ -109,6 +111,9 @@ public class CustomMethod : IDetectMethod
 ```
 
 ## Change log
+**v1.0.4-alpha.1**
+- Fixes the issue where year of movies like The Legend of 1900 (1998) was incorrectly detected as 1900 instead of 1998.
+ 
 **v1.0.3**
 - Added ```FileExtension``` property.
 
