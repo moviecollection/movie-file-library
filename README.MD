@@ -1,13 +1,13 @@
 [![Nuget Version](https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat)](https://www.nuget.org/packages/MovieFileLibrary)
-![Nuget Version Pre](https://img.shields.io/nuget/vpre/MovieFileLibrary?style=flat)
-![Nuget Downloads](https://img.shields.io/nuget/dt/MovieFileLibrary?color=red)
+[![Nuget Version Pre](https://img.shields.io/nuget/vpre/MovieFileLibrary?style=flat)](https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest)
+[![Nuget Downloads](https://img.shields.io/nuget/dt/MovieFileLibrary?color=red)](https://www.nuget.org/packages/MovieFileLibrary)
 [![License](https://img.shields.io/github/license/peymanr34/movie-file-library.svg?style=flat)](LICENSE)
 
 # Movie File Library
-Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.
+Movie File Library is a simple C# library that helps you to get basic movie/series info from a file's name.
 
 ## Built with
-- Testing: xUnit [.Net Core 2.2]
+- Testing: xUnit on .Net Core 2.2
 - Demo: .Net Core 2.2
 
 ## Target frameworks
@@ -28,11 +28,11 @@ Install-Package MovieFileLibrary
 // Detect Method is the way this library gets info from a movie file
 // If you don't like the default method you can write your own
 // If you written one it would be awesome if you share it on GitHub
-MovieFileLibrary.DefaultMethod method = new MovieFileLibrary.DefaultMethod();
+var method = new MovieFileLibrary.DefaultMethod();
 
-// Create Movie Detector Library object
-// This class helps you to detect movie based on a Method
-MovieFileLibrary.MovieDetector movieDetector = new MovieFileLibrary.MovieDetector(method);
+// Create an instance of MovieDetector class
+// This class helps you to detect movie using a detect method
+var movieDetector = new MovieFileLibrary.MovieDetector(method);
 
 // Define a test file path
 string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S03.E04.avi";
@@ -40,11 +40,11 @@ string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Fly
 // Call GetInfo to process file name and return a result
 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
 
-// Print Results
+// Print results
 Console.WriteLine("Title: {0}", movieFile.Title);
 Console.WriteLine("Year: {0}", movieFile.Year);
     
-if(movieFile.IsSeries)
+if (movieFile.IsSeries)
 {
     Console.WriteLine("IsSeries: {0}", movieFile.IsSeries);
     Console.WriteLine("Season: {0}", movieFile.Season);
