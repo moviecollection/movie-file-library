@@ -9,11 +9,12 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
     <PackageReleaseNotes>Fixes the issue where year of movies like The Legend of 1900 (1998) was incorrectly detected as 1900 instead of 1998.</PackageReleaseNotes>
-    <PackageTags>movie</PackageTags>
+    <PackageTags>movie, series, detect, file</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.4-alpha.1</Version>
-    <InformationalVersion>This is a prerelease package</InformationalVersion>
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
   </PropertyGroup>
 
 </Project>

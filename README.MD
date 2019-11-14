@@ -111,7 +111,7 @@ public class CustomMethod : IDetectMethod
 ```
 
 ## Change log
-**v1.0.4-alpha.1**
+**v1.0.4**
 - Fixes the issue where year of movies like The Legend of 1900 (1998) was incorrectly detected as 1900 instead of 1998.
  
 **v1.0.3**
