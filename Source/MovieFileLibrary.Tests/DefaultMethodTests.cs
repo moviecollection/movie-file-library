@@ -49,6 +49,8 @@ namespace MovieFileLibrary.Tests
         [InlineData("Twisted.2013.S06E19.mp4", "Twisted", "2013", true, 6, 19)]
         // Series With Episode Name
         [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4", "Sherlock", null, true, 3, 2)]
+        // Series With SeasonxEpisode
+        [InlineData("Top Gear 17x03 HDTV.mp4", "Top Gear", null, true, 17, 3)]
         public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
             // Get Info
@@ -85,7 +87,7 @@ namespace MovieFileLibrary.Tests
             {
                 // Get Info
                 MovieFile movieFile = _MovieDetector.GetInfo(item);
-
+                
                 // Assert
                 Assert.True(movieFile.Success);
             }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace MovieFileLibrary
@@ -138,6 +139,23 @@ namespace MovieFileLibrary
 
                         break;
                     }
+                    else if (IsSeasonAndEpisodeWithX(item))
+                    {
+                        string[] split = item.ToLower().Split('x');
+
+                        if (split.Length == 2 && int.TryParse(split[0], out int seasonValue) && int.TryParse(split[1], out int episodeValue))
+                        {
+                            movieFile.IsSeries = true;
+                            movieFile.Season = seasonValue;
+                            movieFile.Episode = episodeValue;
+
+                            break;
+                        }
+
+                        // Treat current item as part of movie title
+                        movieFile.Title += " " + item;
+                        continue;
+                    }
                     else
                     {
                         // if current word is non of cases so [probably] is part of movie name
@@ -148,7 +166,7 @@ namespace MovieFileLibrary
                 // Set success to True
                 movieFile.Success = true;
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 // Set Success to False because we ran into a exception
                 movieFile.Success = false;
@@ -156,6 +174,11 @@ namespace MovieFileLibrary
 
             // Return our new MovieFile object
             return movieFile;
+        }
+
+        private bool IsSeasonAndEpisodeWithX(string item)
+        {
+            return Regex.IsMatch(item, "([0-9]{1,2})([xX])([0-9]{1,2})");
         }
 
         private static bool IsYear(string item)

@@ -10,11 +10,11 @@ namespace Demo
             // Detect Method is the way this library gets info from a movie file
             // If you don't like the default method you can write your own
             // If you written one it would be awesome if you share it on GitHub
-            MovieFileLibrary.DefaultMethod method = new MovieFileLibrary.DefaultMethod();
+            var method = new MovieFileLibrary.DefaultMethod();
 
-            // Create Movie Detector Library object
-            // This class helps you to detect movie based on a Method
-            MovieFileLibrary.MovieDetector movieDetector = new MovieFileLibrary.MovieDetector(method);
+            // Create an instance of MovieDetector class
+            // This class helps you to detect movie using a detect method
+            var movieDetector = new MovieFileLibrary.MovieDetector(method);
 
             // Bunch of samples
             string[] files =
@@ -23,7 +23,8 @@ namespace Demo
                 "D:\\True.Detective.S03E06.720p.x264.mkv",
                 "D:\\Monty.Pythons.Flying.Circus.S03.E04.avi",
                 "D:\\The.Grand.Tour.S02E05.1080p.WEB-DL.6CH.x265.HEVC.mkv",
-                "D:\\Bohemian.Rhapsody.2018.720p.BRRip.x265.mkv"
+                "D:\\Bohemian.Rhapsody.2018.720p.BRRip.x265.mkv",
+                "D:\\Top Gear 17x03 HDTV.mp4"
             };
 
             // Enumerate simple files and call MovieDetector and print out results
