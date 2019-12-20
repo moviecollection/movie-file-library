@@ -1,7 +1,7 @@
-[![Nuget Version](https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat)](https://www.nuget.org/packages/MovieFileLibrary)
-[![Nuget Version Pre](https://img.shields.io/nuget/vpre/MovieFileLibrary?style=flat)](https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest)
-[![Nuget Downloads](https://img.shields.io/nuget/dt/MovieFileLibrary?color=red)](https://www.nuget.org/packages/MovieFileLibrary)
-[![License](https://img.shields.io/github/license/peymanr34/movie-file-library.svg?style=flat)](LICENSE)
+[![Nuget Version][nuget-shield]][nuget]
+[![Nuget Version Pre][nuget-shield-pre]][nuget-pre]
+[![Nuget Downloads][nuget-shield-downloads]][nuget]
+[![License][license-shield]](LICENSE)
 
 # Movie File Library
 Movie File Library is a simple C# library that helps you to get basic movie/series info from a file's name.
@@ -24,20 +24,13 @@ Install-Package MovieFileLibrary
 ## How to use
 
 ```csharp
-// You should specify a Detect Method
-// Detect Method is the way this library gets info from a movie file
-// If you don't like the default method you can write your own
-// If you written one it would be awesome if you share it on GitHub
-var method = new MovieFileLibrary.DefaultMethod();
-
 // Create an instance of MovieDetector class
-// This class helps you to detect movie using a detect method
-var movieDetector = new MovieFileLibrary.MovieDetector(method);
+var movieDetector = new MovieFileLibrary.MovieDetector();
 
-// Define a test file path
+// Define a test filename
 string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S03.E04.avi";
 
-// Call GetInfo to process file name and return a result
+// Call GetInfo to process filename
 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
 
 // Print results
@@ -71,46 +64,10 @@ FileExtension: .avi
 Success: True
 ```
 
-## Got a better idea?
-If you are interested in writing your own Detect Method you can use ```IDetectMethod``` interface like this example:
-
-```csharp
-public class CustomMethod : IDetectMethod
-{
-    /// <summary>
-    /// Gets movie info from file
-    /// </summary>
-    /// <param name="filePath">a string containing file path</param>
-    /// <returns>MovieFile model with basic info regarding the movie</returns>
-    public MovieFile GetInfo(string filePath)
-    {
-        // Create a MovieFile object and set the filePath using constructor
-        MovieFile movieFile = new MovieFile(filePath);
-
-        try
-        {
-            // TODO: Your fantastic code here ;-)
-            // ...
-
-            // Set success to True
-            movieFile.Success = true;
-        }
-        catch (System.Exception)
-        {
-            // TODO: Handle the exception the way you like it
-            // ...
-
-            // Set Success to False because we ran into a exception
-            movieFile.Success = false;
-        }
-
-        // Return our new MovieFile object
-        return movieFile;
-    }
-}
-```
-
 ## Change log
+**v1.0.5-alpha.1**
+- Add support for files with SeasonxEpisode pattern. (e.g. Top Gear 15x05)
+
 **v1.0.4**
 - Fixes the issue where year of movies like The Legend of 1900 (1998) was incorrectly detected as 1900 instead of 1998.
  
@@ -128,3 +85,10 @@ If you encountered a problem or you have any suggestions please let me know in t
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
+
+[nuget]: https://www.nuget.org/packages/MovieFileLibrary
+[nuget-pre]: https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest
+[nuget-shield]: https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat
+[nuget-shield-pre]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=nuget-preview
+[nuget-shield-downloads]: https://img.shields.io/nuget/dt/MovieFileLibrary?color=red
+[license-shield]: https://img.shields.io/github/license/peymanr34/movie-file-library.svg?style=flat

@@ -4,8 +4,8 @@ namespace MovieFileLibrary.Tests
 {
     public class DefaultMethodTests
     {
-        private DefaultMethod _DefaultMethod;
-        private MovieDetector _MovieDetector;
+        private readonly DefaultMethod _DefaultMethod;
+        private readonly MovieDetector _MovieDetector;
 
         public DefaultMethodTests()
         {
@@ -33,6 +33,7 @@ namespace MovieFileLibrary.Tests
         [InlineData("True.Detective.S02.720p.mkv", "True Detective", null, true, 2, 1)]
         // Series Only Episode
         [InlineData("True.Detective.E05.720p.mkv", "True Detective", null, true, 1, 5)]
+        [InlineData("The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv", "The Count of Monte Cristo", "1998", true, 1, 4)]
         // Series Separate Episode And Series
         [InlineData("Modern.Family.S02.E24.720p.mkv", "Modern Family", null, true, 2, 24)]
         // Series Separate No Dots
@@ -85,10 +86,7 @@ namespace MovieFileLibrary.Tests
 
             foreach (var item in filenames)
             {
-                // Get Info
                 MovieFile movieFile = _MovieDetector.GetInfo(item);
-                
-                // Assert
                 Assert.True(movieFile.Success);
             }
         }

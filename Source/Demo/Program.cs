@@ -6,17 +6,10 @@ namespace Demo
     {
         static void Main()
         {
-            // You should specify a Detect Method
-            // Detect Method is the way this library gets info from a movie file
-            // If you don't like the default method you can write your own
-            // If you written one it would be awesome if you share it on GitHub
-            var method = new MovieFileLibrary.DefaultMethod();
-
             // Create an instance of MovieDetector class
-            // This class helps you to detect movie using a detect method
-            var movieDetector = new MovieFileLibrary.MovieDetector(method);
+            var movieDetector = new MovieFileLibrary.MovieDetector();
 
-            // Bunch of samples
+            // Sample files
             string[] files =
             {
                 "D:\\Doctor Who 2005 S09E05 720p.mkv",
@@ -27,13 +20,12 @@ namespace Demo
                 "D:\\Top Gear 17x03 HDTV.mp4"
             };
 
-            // Enumerate simple files and call MovieDetector and print out results
             foreach (var file in files)
             {
-                // Call GetInfo to process file name and return a result
+                // Call GetInfo to process filename
                 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(file);
 
-                // Print Results
+                // Print the result
                 Console.WriteLine("Title: {0}", movieFile.Title);
                 Console.WriteLine("Year: {0}", movieFile.Year);
 
@@ -51,7 +43,7 @@ namespace Demo
                 Console.WriteLine("--------------------------------------------");
             }
 
-            // Wait For User Exit
+            // Wait for user to press a key to exit
             Console.WriteLine("Press Any Key To Exit...");
             Console.ReadKey();
         }
