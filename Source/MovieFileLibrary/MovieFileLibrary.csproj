@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>MovieFileLibrary</PackageId>
     <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
     <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
     <Authors>Peyman Mohammadi</Authors>
@@ -15,5 +16,12 @@
     <Version>1.1.0-beta.1</Version>
     <InformationalVersion>This is a prerelease package</InformationalVersion>
   </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>
