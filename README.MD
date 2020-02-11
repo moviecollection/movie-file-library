@@ -7,8 +7,8 @@
 Movie File Library is a simple C# library that helps you to get basic movie/series info from a file's name.
 
 ## Built with
-- Testing: xUnit on .Net Core 2.2
-- Demo: .Net Core 2.2
+- Demo: .NET Core 3.1
+- Tests: xUnit (.NET Core 3.1)
 
 ## Target frameworks
 - .Net Standard 1.0
@@ -65,20 +65,7 @@ Success: True
 ```
 
 ## Change log
-**v1.0.5-alpha.1**
-- Add support for files with SeasonxEpisode pattern. (e.g. Top Gear 15x05)
-
-**v1.0.4**
-- Fixes the issue where year of movies like The Legend of 1900 (1998) was incorrectly detected as 1900 instead of 1998.
- 
-**v1.0.3**
-- Added ```FileExtension``` property.
-
-**v1.0.2**
-- Change ```Name``` property to ```Title``` to avoid confusion.
-
-**v1.0.1**
-- Added target frameworks to avoid downloading huge amount of dependencies via NuGet.
+Please visit releases page.
 
 ## Contributing
 If you encountered a problem or you have any suggestions please let me know in the issues.
