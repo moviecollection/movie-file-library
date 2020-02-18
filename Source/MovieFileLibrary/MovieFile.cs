@@ -9,7 +9,8 @@
         /// Creates a Movie File object
         /// </summary>
         /// <param name="filepath">Movie File Path</param>
-        public MovieFile(string filepath) : base()
+        public MovieFile(string filepath)
+            : base()
         {
             FilePath = filepath;
             FileExtension = System.IO.Path.GetExtension(filepath);
