@@ -9,12 +9,11 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
     <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
-    <PackageReleaseNotes>Add support for files with SeasonxEpisode pattern.</PackageReleaseNotes>
     <PackageTags>movie, series, detect, file</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.1.0-beta.1</Version>
-    <InformationalVersion>This is a prerelease package</InformationalVersion>
+    <Version>1.1.0-beta.2</Version>
+    <PackageReleaseNotes>Improve season detection.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">

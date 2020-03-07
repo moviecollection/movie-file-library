@@ -97,6 +97,15 @@ namespace MovieFileLibrary
 
                     // Try get Season value using 
                     bool seasonResult = int.TryParse(sp[0], out int seasonvalue);
+
+                    if (!seasonResult)
+                    {
+                        movieFile.Season = null;
+                        movieFile.Episode = null;
+                        movieFile.IsSeries = false;
+                        break;
+                    }
+
                     movieFile.Season = seasonvalue;
 
                     // If we have a Episode value (because of previews split)
@@ -183,12 +192,19 @@ namespace MovieFileLibrary
         /// <returns></returns>
         private static bool IsSeason(string item)
         {
-            if (string.IsNullOrWhiteSpace(item))
+            // e.g. S01E01
+            if (Regex.IsMatch(item, @"^S([0-9]{1,2})E([0-9]{1,2})", RegexOptions.IgnoreCase))
             {
-                return false;
+                return true;
             }
 
-            return (char.ToUpperInvariant(item[0]) == 'S' && item.Length > 2 && char.IsNumber(item[1]));
+            // e.g. S01
+            if (Regex.IsMatch(item, @"^S([0-9]{1,2})$", RegexOptions.IgnoreCase))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -203,7 +219,7 @@ namespace MovieFileLibrary
                 return false;
             }
 
-            return (char.ToUpperInvariant(item[0]) == 'E' && item.Length > 1 && char.IsNumber(item[1]));
+            return char.ToUpperInvariant(item[0]) == 'E' && item.Length > 1 && char.IsNumber(item[1]);
         }
 
         /// <summary>

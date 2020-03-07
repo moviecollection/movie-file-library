@@ -1,4 +1,4 @@
-using Xunit;
+﻿using Xunit;
 
 namespace MovieFileLibrary.Tests
 {
@@ -52,6 +52,9 @@ namespace MovieFileLibrary.Tests
         [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4", "Sherlock", null, true, 3, 2)]
         // Series With SeasonxEpisode
         [InlineData("Top Gear 17x03 HDTV.mp4", "Top Gear", null, true, 17, 3)]
+        // Others
+        [InlineData("Iron.Man.2.2010.720p.Encode.S1N4.mkv", "Iron Man 2", "2010", false, null, null)]
+
         public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
             // Get Info
