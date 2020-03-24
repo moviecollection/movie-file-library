@@ -11,13 +11,13 @@ Movie File Library is a simple C# library that helps you to get basic movie/seri
 - Tests: xUnit (.NET Core 3.1)
 
 ## Target frameworks
-- .Net Standard 1.0
-- .Net Standard 2.0
-- .Net Framework 4.5.1
+- .NET Standard 1.0
+- .NET Standard 2.0
+- .NET Framework 4.5.1
 
 ## Installing
 Enter following command in your ```NuGet Package Manager```:
-```
+```powershell
 Install-Package MovieFileLibrary
 ```
 
