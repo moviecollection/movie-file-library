@@ -1,19 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>MovieFileLibrary</PackageId>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
-    <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
+    <Version>1.1.0</Version>
     <Authors>Peyman Mohammadi</Authors>
+    <PackageId>MovieFileLibrary</PackageId>
     <Copyright>© 2019 Peyman Mohammadi</Copyright>
+    <PackageTags>movie; series; detect; file</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
-    <PackageTags>movie, series, detect, file</PackageTags>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.1.0-beta.2</Version>
-    <PackageReleaseNotes>Improve season detection.</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
+    <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
