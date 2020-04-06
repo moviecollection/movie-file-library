@@ -3,13 +3,16 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.1.0</Version>
+    <Version>1.1.1-alpha.1</Version>
     <Authors>Peyman Mohammadi</Authors>
     <PackageId>MovieFileLibrary</PackageId>
-    <Copyright>© 2019 Peyman Mohammadi</Copyright>
+    <Copyright>© 2018 - 2020 Peyman Mohammadi</Copyright>
     <PackageTags>movie; series; detect; file</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
