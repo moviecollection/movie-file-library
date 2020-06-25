@@ -1,38 +1,36 @@
 ﻿namespace MovieFileLibrary
 {
     /// <summary>
-    /// MovieDetector helps you to detect movie based on a pre-defined IDetector
+    /// The <see cref="MovieDetector"/> class helps you get movie info.
     /// </summary>
     public class MovieDetector
     {
-        /// <summary>
-        /// Movie Detector Method
-        /// Method is the way library detects movie info from a file
-        /// </summary>
         private readonly IDetectMethod _detector;
 
         /// <summary>
-        /// Use DefaultMethod to detect a movie
+        /// Initializes a new instance of the <see cref="MovieDetector"/> class with the default implementation.
         /// </summary>
-        public MovieDetector() : base()
+        public MovieDetector()
+            : base()
         {
             _detector = new DefaultMethod();
         }
 
         /// <summary>
-        /// Use a Custom Method
+        /// Initializes a new instance of the <see cref="MovieDetector"/> class.
         /// </summary>
-        /// <param name="detector">Custom Method that you want to use</param>
-        public MovieDetector(IDetectMethod detector) : base()
+        /// <param name="detector">An implementation of the <see cref="IDetectMethod"/> interface.</param>
+        public MovieDetector(IDetectMethod detector)
+            : base()
         {
             _detector = detector;
         }
 
         /// <summary>
-        /// Get movie info from file using defined Detector
+        /// Gets movie info from a filename.
         /// </summary>
-        /// <param name="filePath">a string contaning file path</param>
-        /// <returns>MovieFile object with basic info regarding the movie</returns>
+        /// <param name="filePath">The path of a movie file.</param>
+        /// <returns>New instance of the <see cref="MovieFile"/> class with basic info regarding the movie.</returns>
         public MovieFile GetInfo(string filePath)
         {
             return _detector.GetInfo(filePath);

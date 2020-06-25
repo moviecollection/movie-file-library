@@ -1,31 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
-  <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <IncludeSymbols>true</IncludeSymbols>
-  </PropertyGroup>
 
-  <PropertyGroup>
-    <Version>1.1.1-alpha.1</Version>
-    <Authors>Peyman Mohammadi</Authors>
-    <PackageId>MovieFileLibrary</PackageId>
-    <Copyright>© 2018 - 2020 Peyman Mohammadi</Copyright>
-    <PackageTags>movie; series; detect; file</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
-    <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.0;netstandard2.0;net451</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSymbols>true</IncludeSymbols>
+        <NoWarn>SA1633;SA1101;SA1309;SA0001</NoWarn>
+    </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    <!--
+    SA1633: The file header is missing or not located at the top of the file.
+    SA1101: Prefix local calls with this.
+    SA1309: Field should not begin with an underscore.
+    SA0001: XML comment analysis is disabled due to project configuration.
+    -->
+
+    <PropertyGroup>
+        <Version>1.1.1-alpha.1</Version>
+        <Authors>Peyman Mohammadi</Authors>
+        <PackageId>MovieFileLibrary</PackageId>
+        <Copyright>© 2018 - 2020 Peyman Mohammadi</Copyright>
+        <PackageTags>movie; series; detect; file</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
+        <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
 </Project>
