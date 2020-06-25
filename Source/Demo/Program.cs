@@ -6,10 +6,10 @@ namespace Demo
     {
         static void Main()
         {
-            // Create an instance of MovieDetector class
+            // Create an instance of MovieDetector class.
             var movieDetector = new MovieFileLibrary.MovieDetector();
 
-            // Sample files
+            // Sample files.
             string[] files =
             {
                 "D:\\Doctor Who 2005 S09E05 720p.mkv",
@@ -22,10 +22,9 @@ namespace Demo
 
             foreach (var file in files)
             {
-                // Call GetInfo to process filename
+                // Get information from file name.
                 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(file);
 
-                // Print the result
                 Console.WriteLine("Title: {0}", movieFile.Title);
                 Console.WriteLine("Year: {0}", movieFile.Year);
 
@@ -43,7 +42,7 @@ namespace Demo
                 Console.WriteLine("--------------------------------------------");
             }
 
-            // Wait for user to press a key to exit
+            // Wait for user to press a key to exit.
             Console.WriteLine("Press Any Key To Exit...");
             Console.ReadKey();
         }

@@ -4,13 +4,11 @@ namespace MovieFileLibrary.Tests
 {
     public class DefaultMethodTests
     {
-        private readonly DefaultMethod _DefaultMethod;
-        private readonly MovieDetector _MovieDetector;
+        private readonly MovieDetector _detector;
 
         public DefaultMethodTests()
         {
-            _DefaultMethod = new DefaultMethod();
-            _MovieDetector = new MovieDetector(_DefaultMethod);
+            _detector = new MovieDetector();
         }
 
         [Theory]
@@ -54,11 +52,10 @@ namespace MovieFileLibrary.Tests
         [InlineData("Top Gear 17x03 HDTV.mp4", "Top Gear", null, true, 17, 3)]
         // Others
         [InlineData("Iron.Man.2.2010.720p.Encode.S1N4.mkv", "Iron Man 2", "2010", false, null, null)]
-
         public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
             // Get Info
-            MovieFile movieFile = _MovieDetector.GetInfo(filePath);
+            MovieFile movieFile = _detector.GetInfo(filePath);
 
             // Assert
             Assert.True(movieFile.Success);
@@ -89,7 +86,7 @@ namespace MovieFileLibrary.Tests
 
             foreach (var item in filenames)
             {
-                MovieFile movieFile = _MovieDetector.GetInfo(item);
+                MovieFile movieFile = _detector.GetInfo(item);
                 Assert.True(movieFile.Success);
             }
         }
