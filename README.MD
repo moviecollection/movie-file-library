@@ -4,7 +4,7 @@
 [![License][license-shield]](LICENSE)
 
 # Movie File Library
-Movie File Library is a simple C# library that helps you to get basic movie/series info from a file's name.
+Movie File Library helps you get basic information from a movie file's name. 
 
 ## Built with
 - Demo: .NET Core 3.1
@@ -28,7 +28,7 @@ Install-Package MovieFileLibrary
 var movieDetector = new MovieFileLibrary.MovieDetector();
 
 // Define a test filename
-string filePath = "D:\\Monty Python's Flying Circus\\Season 1\\Monty.Pythons.Flying.Circus.S03.E04.avi";
+string filePath = "D:\\Monty Python's Flying Circus\\Season 3\\Monty.Pythons.Flying.Circus.S03.E04.avi";
 
 // Call GetInfo to process filename
 MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
@@ -59,7 +59,7 @@ Year: null
 IsSeries: True
 Season: 3
 Episode: 4
-FilePath: D:\Monty Python's Flying Circus\Season 1\Monty.Pythons.Flying.Circus.S03.E04.avi
+FilePath: D:\Monty Python's Flying Circus\Season 3\Monty.Pythons.Flying.Circus.S03.E04.avi
 FileExtension: .avi
 Success: True
 ```
