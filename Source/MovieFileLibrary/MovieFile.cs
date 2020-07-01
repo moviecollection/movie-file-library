@@ -1,7 +1,7 @@
 ﻿namespace MovieFileLibrary
 {
     /// <summary>
-    /// A <see cref="MovieFile"/> represents information about a movie file.
+    /// A <c>MovieFile</c> represents information about a movie file.
     /// </summary>
     public class MovieFile : object
     {

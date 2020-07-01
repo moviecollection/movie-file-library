@@ -1,7 +1,7 @@
 ﻿namespace MovieFileLibrary
 {
     /// <summary>
-    /// The <see cref="IDetectMethod"/> interface.
+    /// The <c>IDetectMethod</c> interface.
     /// </summary>
     public interface IDetectMethod
     {

@@ -1,7 +1,7 @@
 ﻿namespace MovieFileLibrary
 {
     /// <summary>
-    /// The <see cref="MovieDetector"/> class helps you get movie info.
+    /// The <c>MovieDetector</c> class helps you get movie info.
     /// </summary>
     public class MovieDetector
     {
