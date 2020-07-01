@@ -47,7 +47,7 @@
                     continue;
                 }
 
-                // Check if current word is a Year value or a Season value or a Episode value.
+                // Check if current item is a Year value or a Season value or a Episode value.
                 if (IsYear(item))
                 {
                     // Check for movies with year in name [e.g The Legend of 1900 (1998)].
@@ -62,7 +62,7 @@
                     }
                     else
                     {
-                        // We have another year therefore treat the current item as part of movie title.
+                        // We have another year value, therefore treat the current item as part of movie title.
                         movieFile.Year = lastYear;
                         movieFile.Title += " " + item;
                     }
@@ -75,14 +75,11 @@
                 }
                 else if (IsSeason(item))
                 {
-                    // In this case We have a "S" in words that indicates season number for a tv series
-                    movieFile.IsSeries = true;
-
-                    // Remove Season indicator from word and also split word using "e"
-                    // season and episode values are something like this: MovieName.S01E02
+                    // In this case we have a "S" in words that indicates season number for a tv series.
+                    // Remove Season indicator from current item then split the item using "e" to get episode numeric value.
+                    // This is for cases where Season and Episode values are squashed together (e.g. MovieName.S01E02).
                     string[] sp = item.Substring(1, item.Length - 1).ToUpperInvariant().Split('E');
 
-                    // Try get Season value using
                     if (!int.TryParse(sp[0], out int seasonvalue))
                     {
                         movieFile.Season = null;
@@ -91,9 +88,10 @@
                         break;
                     }
 
+                    movieFile.IsSeries = true;
                     movieFile.Season = seasonvalue;
 
-                    // If we have a Episode value (because of previews split)
+                    // Check if we have an episode value.
                     if (sp.Length >= 2)
                     {
                         // Same TryParse method
@@ -110,20 +108,22 @@
                 }
                 else if (IsEpisode(item))
                 {
-                    // In this case we have a "E" in words that indicates season number.
-                    // This case happens when season number and episode number are separated with space
-                    // or when season value is not present.
+                    // In this case we have a episode indicator.
+                    // This case happens when season number and episode number are separated (e.g MovieName.S05.E08).
                     movieFile.IsSeries = true;
 
-                    // If we didn't have a Season value.
-                    // Happens when season value is not present like: MovieName.E03).
+                    // Check if we already got season value.
+                    // Happens when season value is not present (e.g: MovieName.E03).
                     if (!movieFile.Season.HasValue)
                     {
+                        // Assume first season.
                         movieFile.Season = 1;
                     }
 
+                    // Remove episode indicator character.
                     string e = item.Substring(1, item.Length - 1).ToUpperInvariant();
 
+                    // Get the numeric value.
                     bool episodeResult = int.TryParse(e, out int episodevalue);
                     movieFile.Episode = episodevalue;
 
@@ -131,6 +131,7 @@
                 }
                 else if (IsSeasonAndEpisodeWithX(item))
                 {
+                    // For cases where Season and Episode values are seperated by a "x" character.
                     string[] split = item.ToUpperInvariant().Split('X');
 
                     if (split.Length == 2 && int.TryParse(split[0], out int seasonValue) && int.TryParse(split[1], out int episodeValue))
