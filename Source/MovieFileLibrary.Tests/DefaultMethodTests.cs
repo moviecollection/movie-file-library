@@ -89,5 +89,11 @@ namespace MovieFileLibrary.Tests
                 Assert.True(movieFile.Success);
             }
         }
+
+        [Fact]
+        public void ShouldThrowExceptionOnNullFilePath()
+        {
+            Assert.Throws<System.ArgumentException>(() => _detector.GetInfo(null));
+        }
     }
 }
