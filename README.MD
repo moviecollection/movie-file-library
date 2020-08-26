@@ -1,7 +1,6 @@
 [![Nuget Version][nuget-shield]][nuget]
 [![Nuget Version Pre][nuget-shield-pre]][nuget-pre]
 [![Nuget Downloads][nuget-shield-downloads]][nuget]
-[![License][license-shield]](LICENSE)
 
 # Movie File Library
 Movie File Library helps you get basic information from a movie file's name. 
@@ -78,4 +77,3 @@ This project is licensed under the [MIT License](LICENSE).
 [nuget-shield]: https://img.shields.io/nuget/v/MovieFileLibrary.svg?style=flat
 [nuget-shield-pre]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=nuget-preview
 [nuget-shield-downloads]: https://img.shields.io/nuget/dt/MovieFileLibrary?color=red
-[license-shield]: https://img.shields.io/github/license/peymanr34/movie-file-library.svg?style=flat
