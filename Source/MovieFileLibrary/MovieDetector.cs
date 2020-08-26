@@ -30,7 +30,10 @@
         /// Gets movie info from a filename.
         /// </summary>
         /// <param name="filePath">The path of a movie file.</param>
-        /// <returns>New instance of the <see cref="MovieFile"/> class with basic info regarding the movie.</returns>
+        /// <returns>An instance of the <see cref="MovieFile"/> class with basic info regarding the movie.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="filePath"/> is null or whitespace.
+        /// </exception>
         public MovieFile GetInfo(string filePath)
         {
             return _detector.GetInfo(filePath);

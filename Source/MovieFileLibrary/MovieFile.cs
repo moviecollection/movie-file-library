@@ -10,17 +10,20 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieFile"/> class.
         /// </summary>
-        /// <param name="filepath">The path of a movie file.</param>
-        public MovieFile(string filepath)
+        /// <param name="filePath">The path of a movie file.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="filePath"/> is null or whitespace.
+        /// </exception>
+        public MovieFile(string filePath)
             : base()
         {
-            if (string.IsNullOrWhiteSpace(filepath))
+            if (string.IsNullOrWhiteSpace(filePath))
             {
-                throw new ArgumentException($"'{nameof(filepath)}' cannot be null or whitespace", nameof(filepath));
+                throw new ArgumentException($"'{nameof(filePath)}' cannot be null or whitespace", nameof(filePath));
             }
 
-            FilePath = filepath;
-            FileExtension = System.IO.Path.GetExtension(filepath);
+            FilePath = filePath;
+            FileExtension = System.IO.Path.GetExtension(filePath);
         }
 
         /// <summary>
