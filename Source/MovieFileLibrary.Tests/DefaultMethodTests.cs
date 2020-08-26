@@ -66,28 +66,20 @@ namespace MovieFileLibrary.Tests
             Assert.Equal(expected: episode, actual: movieFile.Episode);
         }
 
-        [Fact]
-        public void ShouldNotReturnFalseNegative()
+        [Theory]
+        [InlineData("Duplicity.2009.1080p.Dubbed.mkv")]
+        [InlineData("The.Left.Handed.Gun.1958.WEB-DL.720p.Dubbed.mkv")]
+        [InlineData("The.Lookout.2007.1080p.Dubbed.mkv")]
+        [InlineData("The.Magnificent.Seven.1960.1080p.Dubbed.mkv")]
+        [InlineData("The.Man.in.the.Iron.Mask.1998.1080p.Dubbed.mkv")]
+        [InlineData("The.Orphanage.2007.1080p.Dubbed.mkv")]
+        [InlineData("The.Professional.1981.1080p.Fixed.Dubbed.mkv")]
+        [InlineData("The.Raid.2.Berandal.2014.1080p.5.1CH.Ganool - Dubbed.mkv")]
+        [InlineData("The.Rock.1996.1080p.Dubbed.mkv")]
+        public void ShouldNotReturnFalseNegative(string filePath)
         {
-            // Source
-            string[] filenames =
-            {
-                "Duplicity.2009.1080p.Farsi.Dubbed.mkv",
-                "The.Left.Handed.Gun.1958.WEB-DL.720p.Farsi.Dubbed.mkv",
-                "The.Lookout.2007.1080p.Farsi.Dubbed.mkv",
-                "The.Magnificent.Seven.1960.1080p.Farsi.Dubbed.mkv",
-                "The.Man.in.the.Iron.Mask.1998.1080p.Farsi.Dubbed.mkv",
-                "The.Orphanage.2007.1080p.Farsi.Dubbed.mkv",
-                "The.Professional.1981.1080p.Fixed.Farsi.Dubbed.mkv",
-                "The.Raid.2.Berandal.2014.1080p.5.1CH.Ganool - Dubbed Farsi.mkv",
-                "The.Rock.1996.1080p.Farsi.Dubbed.mkv"
-            };
-
-            foreach (var item in filenames)
-            {
-                MovieFile movieFile = _detector.GetInfo(item);
-                Assert.True(movieFile.Success);
-            }
+            MovieFile movieFile = _detector.GetInfo(filePath);
+            Assert.True(movieFile.Success);
         }
 
         [Fact]
