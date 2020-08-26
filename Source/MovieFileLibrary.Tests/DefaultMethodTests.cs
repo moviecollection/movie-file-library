@@ -52,23 +52,22 @@ namespace MovieFileLibrary.Tests
         [InlineData("Top Gear 17x03 HDTV.mp4", "Top Gear", null, true, 17, 3)]
         // Others
         [InlineData("Iron.Man.2.2010.720p.Encode.S1N4.mkv", "Iron Man 2", "2010", false, null, null)]
-        public void TestTheDefaultMethod(string filePath, string title, string year, bool isSeries, int? season, int? episode)
+        public void ReturnDataShouldBeCorrect(string filePath, string title, string year, bool isSeries, int? season, int? episode)
         {
-            // Get Info
             MovieFile movieFile = _detector.GetInfo(filePath);
 
-            // Assert
             Assert.True(movieFile.Success);
             Assert.Equal(expected: title, actual: movieFile.Title);
             Assert.Equal(expected: year, actual: movieFile.Year);
 
+            // Series
             Assert.Equal(expected: isSeries, actual: movieFile.IsSeries);
             Assert.Equal(expected: season, actual: movieFile.Season);
             Assert.Equal(expected: episode, actual: movieFile.Episode);
         }
 
         [Fact]
-        public void TestSuccessFalseAlarmBatch()
+        public void ShouldNotReturnFalseNegative()
         {
             // Source
             string[] filenames =
