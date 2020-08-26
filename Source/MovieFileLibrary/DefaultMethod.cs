@@ -1,5 +1,6 @@
 ﻿namespace MovieFileLibrary
 {
+    using System;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
@@ -12,6 +13,11 @@
         /// <inheritdoc/>
         public MovieFile GetInfo(string filePath)
         {
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new ArgumentException($"'{nameof(filePath)}' cannot be null or whitespace", nameof(filePath));
+            }
+
             // Create a MovieFile object and set the filepath via constructor.
             var movieFile = new MovieFile(filePath);
 

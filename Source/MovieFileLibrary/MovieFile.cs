@@ -1,5 +1,7 @@
 ﻿namespace MovieFileLibrary
 {
+    using System;
+
     /// <summary>
     /// A <c>MovieFile</c> represents information about a movie file.
     /// </summary>
@@ -12,6 +14,11 @@
         public MovieFile(string filepath)
             : base()
         {
+            if (string.IsNullOrWhiteSpace(filepath))
+            {
+                throw new ArgumentException($"'{nameof(filepath)}' cannot be null or whitespace", nameof(filepath));
+            }
+
             FilePath = filepath;
             FileExtension = System.IO.Path.GetExtension(filepath);
         }
@@ -19,12 +26,12 @@
         /// <summary>
         /// Gets or sets movie title.
         /// </summary>
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         /// <summary>
         /// Gets or sets movie year.
         /// </summary>
-        public string Year { get; set; }
+        public string? Year { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether movie file is a series.
@@ -54,6 +61,6 @@
         /// <summary>
         /// Gets extension of the movie file.
         /// </summary>
-        public string FileExtension { get; private set; }
+        public string? FileExtension { get; private set; }
     }
 }

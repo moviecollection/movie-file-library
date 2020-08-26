@@ -6,7 +6,9 @@
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSymbols>true</IncludeSymbols>
-        <NoWarn>SA1633;SA1101;SA1309;SA0001</NoWarn>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <NoWarn>SA1633;SA1101;SA1309;SA0001;CA1303</NoWarn>
     </PropertyGroup>
 
     <!--
@@ -14,6 +16,7 @@
     SA1101: Prefix local calls with this.
     SA1309: Field should not begin with an underscore.
     SA0001: XML comment analysis is disabled due to project configuration.
+    CA1303: Do not pass literals as localized parameters.
     -->
 
     <PropertyGroup>
