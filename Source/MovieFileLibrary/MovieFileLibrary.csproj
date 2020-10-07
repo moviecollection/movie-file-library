@@ -20,7 +20,7 @@
     -->
 
     <PropertyGroup>
-        <Version>1.1.1-alpha.2</Version>
+        <Version>1.1.1</Version>
         <Authors>Peyman Mohammadi</Authors>
         <PackageId>MovieFileLibrary</PackageId>
         <Copyright>© 2018 - 2020 Peyman Mohammadi</Copyright>
@@ -29,10 +29,10 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <RepositoryUrl>https://github.com/peymanr34/movie-file-library</RepositoryUrl>
         <PackageProjectUrl>https://github.com/peymanr34/movie-file-library</PackageProjectUrl>
-        <Description>Movie File Library is a simple C# library that helps you to get basic movie/series info from a file.</Description>
+        <Description>MovieFileLibrary helps you get basic information from a movie file's name.</Description>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
