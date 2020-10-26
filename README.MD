@@ -15,7 +15,7 @@ Movie File Library helps you get basic information from a movie file's name.
 - .NET Framework 4.5.1
 
 ## Installing
-Enter following command in your ```NuGet Package Manager```:
+You can install this package by entering the following command into your `Package Manager Console`:
 ```powershell
 Install-Package MovieFileLibrary
 ```
