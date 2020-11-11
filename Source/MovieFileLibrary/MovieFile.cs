@@ -5,7 +5,7 @@
     /// <summary>
     /// A <c>MovieFile</c> represents information about a movie file.
     /// </summary>
-    public class MovieFile : object
+    public class MovieFile
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieFile"/> class.

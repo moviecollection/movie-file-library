@@ -2,15 +2,10 @@
 [![Nuget Version Pre][nuget-shield-pre]][nuget-pre]
 [![Nuget Downloads][nuget-shield-downloads]][nuget]
 
-# Movie File Library
-Movie File Library helps you get basic information from a movie file's name. 
-
-## Built with
-- Demo: .NET Core 3.1
-- Tests: xUnit (.NET Core 3.1)
+# MovieFileLibrary
+MovieFileLibrary helps you get basic information from a movie file's name. 
 
 ## Target frameworks
-- .NET Standard 1.0
 - .NET Standard 2.0
 - .NET Framework 4.5.1
 
@@ -21,7 +16,7 @@ Install-Package MovieFileLibrary
 ```
 
 ## How to use
-
+This example shows you how to use `MovieFileLibrary` in your project:
 ```csharp
 // Create an instance of MovieDetector class
 var movieDetector = new MovieFileLibrary.MovieDetector();

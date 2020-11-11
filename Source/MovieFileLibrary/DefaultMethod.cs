@@ -6,7 +6,7 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// Default implementation of <see cref="IDetectMethod"/> interface.
+    /// The default implementation of <see cref="IDetectMethod"/> interface.
     /// </summary>
     public class DefaultMethod : IDetectMethod
     {
