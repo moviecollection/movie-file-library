@@ -2,13 +2,13 @@
 
 namespace MovieFileLibrary.Tests
 {
-    public class DefaultMethodTests
+    public class DetectionTests
     {
-        private readonly MovieDetector _detector;
+        private readonly DefaultMethod _detector;
 
-        public DefaultMethodTests()
+        public DetectionTests()
         {
-            _detector = new MovieDetector();
+            _detector = new DefaultMethod();
         }
 
         [Theory]
