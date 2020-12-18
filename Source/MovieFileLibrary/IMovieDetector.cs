@@ -1,9 +1,9 @@
 ﻿namespace MovieFileLibrary
 {
     /// <summary>
-    /// The <c>IDetectMethod</c> interface.
+    /// The <c>IMovieDetector</c> interface.
     /// </summary>
-    public interface IDetectMethod
+    public interface IMovieDetector
     {
         /// <summary>
         /// Gets movie info from a filename.

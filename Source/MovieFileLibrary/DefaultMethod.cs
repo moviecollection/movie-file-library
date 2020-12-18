@@ -6,9 +6,9 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// The default implementation of <see cref="IDetectMethod"/> interface.
+    /// The default implementation of <see cref="IMovieDetector"/> interface.
     /// </summary>
-    public class DefaultMethod : IDetectMethod
+    public class DefaultMethod : IMovieDetector
     {
         /// <inheritdoc/>
         public MovieFile GetInfo(string filePath)
