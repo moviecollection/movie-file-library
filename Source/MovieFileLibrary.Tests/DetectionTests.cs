@@ -4,11 +4,11 @@ namespace MovieFileLibrary.Tests
 {
     public class DetectionTests
     {
-        private readonly DefaultMethod _detector;
+        private readonly MovieDetector _detector;
 
         public DetectionTests()
         {
-            _detector = new DefaultMethod();
+            _detector = new MovieDetector();
         }
 
         [Theory]

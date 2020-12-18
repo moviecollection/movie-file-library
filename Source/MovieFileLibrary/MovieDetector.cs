@@ -8,7 +8,7 @@
     /// <summary>
     /// The default implementation of <see cref="IMovieDetector"/> interface.
     /// </summary>
-    public class DefaultMethod : IMovieDetector
+    public class MovieDetector : IMovieDetector
     {
         /// <inheritdoc/>
         public MovieFile GetInfo(string filePath)

@@ -6,8 +6,8 @@ namespace Demo
     {
         static void Main()
         {
-            // Create an instance of MovieDetector class.
-            var movieDetector = new MovieFileLibrary.DefaultMethod();
+            // Create a new instance of the MovieDetector class.
+            var movieDetector = new MovieFileLibrary.MovieDetector();
 
             // Sample files.
             string[] files =
