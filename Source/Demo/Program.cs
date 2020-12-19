@@ -37,7 +37,7 @@ namespace Demo
 
                 Console.WriteLine("FilePath: {0}", movieFile.FilePath);
                 Console.WriteLine("FileExtension: {0}", movieFile.FileExtension);
-                Console.WriteLine("Success: {0}", movieFile.Success);
+                Console.WriteLine("IsSuccess: {0}", movieFile.IsSuccess);
 
                 Console.WriteLine("--------------------------------------------");
             }

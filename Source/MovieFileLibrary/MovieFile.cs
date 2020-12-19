@@ -54,7 +54,7 @@
         /// <summary>
         /// Gets or sets a value indicating whether detection was successful.
         /// </summary>
-        public bool Success { get; set; }
+        public bool IsSuccess { get; set; }
 
         /// <summary>
         /// Gets path of the movie file.

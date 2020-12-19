@@ -161,7 +161,7 @@
             }
 
             // Return MovieFile object
-            movieFile.Success = true;
+            movieFile.IsSuccess = true;
             return movieFile;
         }
 

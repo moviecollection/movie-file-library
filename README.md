@@ -14,10 +14,10 @@ Install-Package MovieFileLibrary
 ## How to use
 This example shows you how to use `MovieFileLibrary` in your project:
 ```csharp
-// Create an instance of the MovieDetector class.
+// Create a new instance of the MovieDetector class.
 var movieDetector = new MovieFileLibrary.MovieDetector();
 
-// Define a test filename.
+// Define a test file path.
 string filePath = "D:\\Monty Python's Flying Circus\\Season 3\\Monty.Pythons.Flying.Circus.S03.E04.avi";
 
 // Call GetInfo to process the filename.
@@ -36,7 +36,7 @@ if (movieFile.IsSeries)
 
 Console.WriteLine("FilePath: {0}", movieFile.FilePath);
 Console.WriteLine("FileExtension: {0}", movieFile.FileExtension);
-Console.WriteLine("Success: {0}", movieFile.Success);   
+Console.WriteLine("IsSuccess: {0}", movieFile.IsSuccess);   
 ```
 ### Result:
 ```

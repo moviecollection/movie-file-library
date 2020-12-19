@@ -22,7 +22,7 @@ namespace MovieFileLibrary.Tests
         {
             MovieFile movieFile = _detector.GetInfo(filePath);
 
-            Assert.True(movieFile.Success);
+            Assert.True(movieFile.IsSuccess);
             Assert.False(movieFile.IsSeries);
 
             Assert.Equal(title, actual: movieFile.Title);
@@ -53,7 +53,7 @@ namespace MovieFileLibrary.Tests
         {
             MovieFile movieFile = _detector.GetInfo(filePath);
 
-            Assert.True(movieFile.Success);
+            Assert.True(movieFile.IsSuccess);
             Assert.True(movieFile.IsSeries);
 
             Assert.Equal(title, actual: movieFile.Title);
@@ -75,7 +75,7 @@ namespace MovieFileLibrary.Tests
         public void ShouldNotReturnFalseNegative(string filePath)
         {
             MovieFile movieFile = _detector.GetInfo(filePath);
-            Assert.True(movieFile.Success);
+            Assert.True(movieFile.IsSuccess);
         }
 
         [Fact]
