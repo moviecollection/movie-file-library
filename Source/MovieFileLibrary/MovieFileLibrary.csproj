@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -12,25 +13,24 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <NoWarn>SA1633;SA1101;SA1309;SA0001;CA1303</NoWarn>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <NoWarn>SA1633;SA1101;SA1309;CA1303</NoWarn>
         <WarningsAsErrors>nullable</WarningsAsErrors>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
-        <AnalysisLevel>latest</AnalysisLevel>
     </PropertyGroup>
 
     <!--
     SA1633: The file header is missing or not located at the top of the file.
     SA1101: Prefix local calls with this.
     SA1309: Field should not begin with an underscore.
-    SA0001: XML comment analysis is disabled due to project configuration.
     CA1303: Do not pass literals as localized parameters.
     -->
 
     <PropertyGroup>
-        <Version>2.0.0-preview.1</Version>
+        <Version>2.0.0</Version>
         <Authors>Peyman Mohammadi</Authors>
         <PackageId>MovieFileLibrary</PackageId>
-        <Copyright>© 2018 - 2020 Peyman Mohammadi</Copyright>
+        <Copyright>© 2018 - 2021 Peyman Mohammadi</Copyright>
         <PackageTags>movie; series; detect; file</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
