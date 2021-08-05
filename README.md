@@ -2,7 +2,6 @@
 MovieFileLibrary helps you get basic information from a movie file's name. 
 
 [![Nuget Version][nuget-shield]][nuget]
-[![Nuget Preview][nuget-shield-pre]][nuget-pre]
 [![Nuget Downloads][nuget-shield-dl]][nuget]
 
 ## Installing
@@ -34,8 +33,8 @@ if (movieFile.IsSeries)
     Console.WriteLine("Episode: {0}", movieFile.Episode);
 }
 
-Console.WriteLine("FilePath: {0}", movieFile.FilePath);
-Console.WriteLine("FileExtension: {0}", movieFile.FileExtension);
+Console.WriteLine("Path: {0}", movieFile.Path);
+Console.WriteLine("Extension: {0}", movieFile.Extension);
 Console.WriteLine("IsSuccess: {0}", movieFile.IsSuccess);   
 ```
 ### Result:
@@ -45,19 +44,14 @@ Year: null
 IsSeries: True
 Season: 3
 Episode: 4
-FilePath: D:\Monty Python's Flying Circus\Season 3\Monty.Pythons.Flying.Circus.S03.E04.avi
-FileExtension: .avi
-Success: True
+Path: D:\Monty Python's Flying Circus\Season 3\Monty.Pythons.Flying.Circus.S03.E04.avi
+Extension: .avi
+IsSuccess: True
 ```
-
-## Contributing
-If you've encountered a problem or you have any suggestions please let me know in the issues.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
-[nuget]: https://www.nuget.org/packages/MovieFileLibrary
-[nuget-pre]: https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest
-[nuget-shield]: https://img.shields.io/nuget/v/MovieFileLibrary.svg?label=Release
-[nuget-shield-pre]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=Preview
+[nuget]: https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest
+[nuget-shield]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=Preview
 [nuget-shield-dl]: https://img.shields.io/nuget/dt/MovieFileLibrary?label=Downloads&color=red

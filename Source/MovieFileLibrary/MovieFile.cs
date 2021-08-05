@@ -22,8 +22,8 @@
                 throw new ArgumentException($"'{nameof(filePath)}' cannot be null or whitespace", nameof(filePath));
             }
 
-            FilePath = filePath;
-            FileExtension = System.IO.Path.GetExtension(filePath);
+            Path = filePath;
+            Extension = System.IO.Path.GetExtension(filePath);
         }
 
         /// <summary>
@@ -59,11 +59,11 @@
         /// <summary>
         /// Gets path of the movie file.
         /// </summary>
-        public string FilePath { get; private set; }
+        public string Path { get; private set; }
 
         /// <summary>
         /// Gets extension of the movie file.
         /// </summary>
-        public string? FileExtension { get; private set; }
+        public string? Extension { get; private set; }
     }
 }
