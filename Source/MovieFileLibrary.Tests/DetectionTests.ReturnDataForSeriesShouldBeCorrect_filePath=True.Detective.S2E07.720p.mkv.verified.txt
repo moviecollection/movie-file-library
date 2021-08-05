@@ -1,0 +1,9 @@
+﻿{
+  Title: True Detective,
+  IsSeries: true,
+  Season: 2,
+  Episode: 7,
+  IsSuccess: true,
+  Path: True.Detective.S2E07.720p.mkv,
+  Extension: .mkv
+}

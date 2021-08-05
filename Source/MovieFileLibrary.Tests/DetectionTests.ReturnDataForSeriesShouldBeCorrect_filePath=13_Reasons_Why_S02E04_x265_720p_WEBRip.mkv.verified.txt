@@ -1,0 +1,9 @@
+﻿{
+  Title: 13 Reasons Why,
+  IsSeries: true,
+  Season: 2,
+  Episode: 4,
+  IsSuccess: true,
+  Path: 13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv,
+  Extension: .mkv
+}

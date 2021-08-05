@@ -1,7 +1,11 @@
-﻿using Xunit;
+﻿using System;
+using System.Threading.Tasks;
+using VerifyXunit;
+using Xunit;
 
 namespace MovieFileLibrary.Tests
 {
+    [UsesVerify]
     public class DetectionTests
     {
         private readonly MovieDetector _detector;
@@ -12,54 +16,43 @@ namespace MovieFileLibrary.Tests
         }
 
         [Theory]
-        [InlineData("Iron.Man.2.2010.720p.Encode.S1N4.mkv", "Iron Man 2", "2010")]
-        [InlineData("The Legend of 1900 (1998).mkv", "The Legend of 1900", "1998")]
-        [InlineData("Happythankyoumoreplease.2010.mkv", "Happythankyoumoreplease", "2010")]
-        [InlineData("The.Spy.Who.Dumped.Me.2018.BluRay.1080p.5.1CH.x264.mkv", "The Spy Who Dumped Me", "2018")]
-        [InlineData("2001.A.Space.Odyssey.1968.1080p.BluRay.6CH.x265.HEVC.mkv", "2001 A Space Odyssey", "1968")]
-        [InlineData("Blade.Runner.Black.Out.2022.2017.720p.BluRay.x264.mkv", "Blade Runner Black Out 2022", "2017")]
-        public void ReturnDataForMoviesShouldBeCorrect(string filePath, string title, string year)
+        [InlineData("Iron.Man.2.2010.720p.Encode.S1N4.mkv")]
+        [InlineData("The Legend of 1900 (1998).mkv")]
+        [InlineData("Happythankyoumoreplease.2010.mkv")]
+        [InlineData("The.Spy.Who.Dumped.Me.2018.BluRay.1080p.5.1CH.x264.mkv")]
+        [InlineData("2001.A.Space.Odyssey.1968.1080p.BluRay.6CH.x265.HEVC.mkv")]
+        [InlineData("Blade.Runner.Black.Out.2022.2017.720p.BluRay.x264.mkv")]
+        public Task ReturnDataForMoviesShouldBeCorrect(string filePath)
         {
             MovieFile movieFile = _detector.GetInfo(filePath);
 
-            Assert.True(movieFile.IsSuccess);
-            Assert.False(movieFile.IsSeries);
-
-            Assert.Equal(title, actual: movieFile.Title);
-            Assert.Equal(year, actual: movieFile.Year);
-
-            Assert.Null(movieFile.Season);
-            Assert.Null(movieFile.Episode);
+            return Verifier.Verify(movieFile)
+                .UseParameters(filePath);
         }
 
         [Theory]
-        [InlineData("Friends S08 E17 720p.mkv", "Friends", 8, 17)]
-        [InlineData("Top Gear 17x03 HDTV.mp4", "Top Gear", 17, 3)]
-        [InlineData("Seinfeld.S10E17E18.720p.mkv", "Seinfeld", 10, 17)]
-        [InlineData("Seinfeld.S10E17-E18.720p.mkv", "Seinfeld", 10, 17)]
-        [InlineData("Twisted.2013.S06E19.mp4", "Twisted", 6, 19, "2013")]
-        [InlineData("True.Detective.S02.720p.mkv", "True Detective", 2, 1)]
-        [InlineData("True.Detective.E05.720p.mkv", "True Detective", 1, 5)]
-        [InlineData("The Walking Dead S05E9.avi", "The Walking Dead", 5, 9)]
-        [InlineData("True.Detective.S2E7.720p.mkv", "True Detective", 2, 7)]
-        [InlineData("True.Detective.S02E7.720p.mkv", "True Detective", 2, 7)]
-        [InlineData("True.Detective.S2E07.720p.mkv", "True Detective", 2, 7)]
-        [InlineData("True.Detective.S02E07.720p.mkv", "True Detective", 2, 7)]
-        [InlineData("Modern.Family.S02.E24.720p.mkv", "Modern Family", 2, 24)]
-        [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4", "Sherlock", 3, 2)]
-        [InlineData("13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv", "13 Reasons Why", 2, 4)]
-        [InlineData("The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv", "The Count of Monte Cristo", 1, 4, "1998")]
-        public void ReturnDataForSeriesShouldBeCorrect(string filePath, string title, int? season, int? episode, string year = null)
+        [InlineData("Friends S08 E17 720p.mkv")]
+        [InlineData("Top Gear 17x03 HDTV.mp4")]
+        [InlineData("Seinfeld.S10E17E18.720p.mkv")]
+        [InlineData("Seinfeld.S10E17-E18.720p.mkv")]
+        [InlineData("Twisted.2013.S06E19.mp4")]
+        [InlineData("True.Detective.S02.720p.mkv")]
+        [InlineData("True.Detective.E05.720p.mkv")]
+        [InlineData("The Walking Dead S05E9.avi")]
+        [InlineData("True.Detective.S2E7.720p.mkv")]
+        [InlineData("True.Detective.S02E7.720p.mkv")]
+        [InlineData("True.Detective.S2E07.720p.mkv")]
+        [InlineData("True.Detective.S02E07.720p.mkv")]
+        [InlineData("Modern.Family.S02.E24.720p.mkv")]
+        [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4")]
+        [InlineData("13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv")]
+        [InlineData("The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv")]
+        public Task ReturnDataForSeriesShouldBeCorrect(string filePath)
         {
             MovieFile movieFile = _detector.GetInfo(filePath);
 
-            Assert.True(movieFile.IsSuccess);
-            Assert.True(movieFile.IsSeries);
-
-            Assert.Equal(title, actual: movieFile.Title);
-            Assert.Equal(year, actual: movieFile.Year);
-            Assert.Equal(season, actual: movieFile.Season);
-            Assert.Equal(episode, actual: movieFile.Episode);
+            return Verifier.Verify(movieFile)
+                .UseParameters(filePath);
         }
 
         [Theory]
@@ -81,7 +74,7 @@ namespace MovieFileLibrary.Tests
         [Fact]
         public void ShouldThrowExceptionOnNullFilePath()
         {
-            Assert.Throws<System.ArgumentException>(() => _detector.GetInfo(null));
+            Assert.Throws<ArgumentException>(() => _detector.GetInfo(null));
         }
     }
 }

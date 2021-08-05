@@ -1,0 +1,7 @@
+﻿{
+  Title: The Spy Who Dumped Me,
+  Year: 2018,
+  IsSuccess: true,
+  Path: The.Spy.Who.Dumped.Me.2018.BluRay.1080p.5.1CH.x264.mkv,
+  Extension: .mkv
+}

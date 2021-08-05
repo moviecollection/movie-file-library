@@ -1,0 +1,9 @@
+﻿{
+  Title: Seinfeld,
+  IsSeries: true,
+  Season: 10,
+  Episode: 17,
+  IsSuccess: true,
+  Path: Seinfeld.S10E17E18.720p.mkv,
+  Extension: .mkv
+}
