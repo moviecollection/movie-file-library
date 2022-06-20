@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <LangVersion>8.0</LangVersion>
@@ -26,13 +26,13 @@
         <Version>3.0.0-preview.1</Version>
         <Authors>Peyman Mohammadi</Authors>
         <PackageId>MovieFileLibrary</PackageId>
-        <Copyright>© 2018 - 2021 Peyman Mohammadi</Copyright>
+        <Copyright>© 2022 Peyman Mohammadi</Copyright>
         <PackageTags>movie; series; detect; file</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <RepositoryUrl>https://github.com/moviecollection/movie-file-library</RepositoryUrl>
         <PackageProjectUrl>https://github.com/moviecollection/movie-file-library</PackageProjectUrl>
-        <Description>MovieFileLibrary helps you get basic information from a movie file's name.</Description>
+        <Description>A library for extracting basic information from a movie file name.</Description>
     </PropertyGroup>
 
     <ItemGroup>
