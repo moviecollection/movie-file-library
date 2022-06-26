@@ -9,6 +9,12 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <AnalysisLevel>latest</AnalysisLevel>
         <NoWarn>SA1633;SA1101;SA1309;CA1303</NoWarn>
         <WarningsAsErrors>nullable</WarningsAsErrors>
@@ -36,7 +42,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DotNet.ReproducibleBuilds" Version="0.1.66">
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
