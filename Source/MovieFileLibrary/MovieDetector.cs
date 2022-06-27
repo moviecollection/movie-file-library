@@ -118,14 +118,6 @@
                     // This case happens when season number and episode number are separated (e.g MovieName.S05.E08).
                     movieFile.IsSeries = true;
 
-                    // Check if we already got season value.
-                    // Happens when season value is not present (e.g: MovieName.E03).
-                    if (!movieFile.Season.HasValue)
-                    {
-                        // Assume first season.
-                        movieFile.Season = 1;
-                    }
-
                     // Remove episode indicator character.
                     string e = item.Substring(1, item.Length - 1).ToUpperInvariant();
 

@@ -2,7 +2,6 @@
   Title: The Count of Monte Cristo,
   Year: 1998,
   IsSeries: true,
-  Season: 1,
   Episode: 4,
   IsSuccess: true,
   Path: The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv,

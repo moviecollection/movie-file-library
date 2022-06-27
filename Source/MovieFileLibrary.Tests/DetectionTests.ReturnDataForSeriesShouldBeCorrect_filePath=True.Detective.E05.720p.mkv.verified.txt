@@ -1,7 +1,6 @@
 ﻿{
   Title: True Detective,
   IsSeries: true,
-  Season: 1,
   Episode: 5,
   IsSuccess: true,
   Path: True.Detective.E05.720p.mkv,
