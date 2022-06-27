@@ -1,0 +1,8 @@
+﻿{
+  Title: Mr Bean,
+  IsSeries: true,
+  Season: 1,
+  IsSuccess: true,
+  Path: Mr.Bean.S01.(Special).Mr.Beans.Wedding.480p.WEB-DL.x264.mkv,
+  Extension: .mkv
+}

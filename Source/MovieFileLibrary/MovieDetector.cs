@@ -106,9 +106,9 @@
 
                         break;
                     }
-                    else if (!IsEpisodePresent(words))
+
+                    if (!IsEpisodePresent(words))
                     {
-                        movieFile.Episode = 1;
                         break;
                     }
                 }

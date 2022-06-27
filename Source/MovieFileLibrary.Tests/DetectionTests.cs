@@ -47,6 +47,8 @@ namespace MovieFileLibrary.Tests
         [InlineData("Sherlock S03 E02 [The Sign of Three] 720p.mp4")]
         [InlineData("13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv")]
         [InlineData("The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv")]
+        [InlineData("Solar.Opposites.S00E04.A.Very.Solar.Holiday.Opposites.Special.1080p.mkv")]
+        [InlineData("Mr.Bean.S01.(Special).Mr.Beans.Wedding.480p.WEB-DL.x264.mkv")]
         public Task ReturnDataForSeriesShouldBeCorrect(string filePath)
         {
             MovieFile movieFile = _detector.GetInfo(filePath);

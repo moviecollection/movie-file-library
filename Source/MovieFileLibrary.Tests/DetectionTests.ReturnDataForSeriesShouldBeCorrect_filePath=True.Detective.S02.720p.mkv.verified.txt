@@ -2,7 +2,6 @@
   Title: True Detective,
   IsSeries: true,
   Season: 2,
-  Episode: 1,
   IsSuccess: true,
   Path: True.Detective.S02.720p.mkv,
   Extension: .mkv
