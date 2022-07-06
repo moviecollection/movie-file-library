@@ -3,6 +3,7 @@
   IsSeries: true,
   Season: 8,
   Episode: 17,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Friends S08 E17 720p.mkv,
   Extension: .mkv

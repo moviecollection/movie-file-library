@@ -2,6 +2,7 @@
   Title: Doctor Who Specials,
   IsSeries: true,
   Episode: 3,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Doctor.Who.Specials.E03.Voyage.Of.The.Damned.2007.10bit.x265.1080p.BluRay.mkv,
   Extension: .mkv

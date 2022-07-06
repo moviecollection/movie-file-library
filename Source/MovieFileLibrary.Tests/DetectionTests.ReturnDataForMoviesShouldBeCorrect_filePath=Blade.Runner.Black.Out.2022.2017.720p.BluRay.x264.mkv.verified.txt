@@ -2,6 +2,7 @@
   Title: Blade Runner Black Out 2022,
   Year: 2017,
   IsSeries: false,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Blade.Runner.Black.Out.2022.2017.720p.BluRay.x264.mkv,
   Extension: .mkv

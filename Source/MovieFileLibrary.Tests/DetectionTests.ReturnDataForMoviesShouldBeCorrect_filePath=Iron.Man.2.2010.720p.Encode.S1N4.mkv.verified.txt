@@ -2,6 +2,7 @@
   Title: Iron Man 2,
   Year: 2010,
   IsSeries: false,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Iron.Man.2.2010.720p.Encode.S1N4.mkv,
   Extension: .mkv

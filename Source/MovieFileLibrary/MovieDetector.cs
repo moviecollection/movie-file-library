@@ -44,7 +44,8 @@
             movieFile.Episode = null;
             movieFile.IsSeries = false;
 
-            for (int i = 1; i < words.Length; i++)
+            int i;
+            for (i = 1; i < words.Length; i++)
             {
                 string item = words[i].Trim();
 
@@ -150,6 +151,13 @@
                     // It's [probably] part of movie name.
                     movieFile.Title += " " + item;
                 }
+            }
+
+            var remaining = words.Skip(i + 1);
+
+            if (movieFile.IsSeries && remaining.Any(x => x.Equals("Special", StringComparison.OrdinalIgnoreCase)))
+            {
+                movieFile.IsSpecialEpisode = true;
             }
 
             // Return MovieFile object

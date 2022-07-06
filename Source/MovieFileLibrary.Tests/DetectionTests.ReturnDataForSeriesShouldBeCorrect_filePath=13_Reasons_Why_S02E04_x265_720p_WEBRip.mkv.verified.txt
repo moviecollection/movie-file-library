@@ -3,6 +3,7 @@
   IsSeries: true,
   Season: 2,
   Episode: 4,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: 13_Reasons_Why_S02E04_x265_720p_WEBRip.mkv,
   Extension: .mkv

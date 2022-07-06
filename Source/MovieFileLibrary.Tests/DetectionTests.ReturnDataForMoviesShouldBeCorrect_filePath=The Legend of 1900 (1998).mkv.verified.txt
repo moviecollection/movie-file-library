@@ -2,6 +2,7 @@
   Title: The Legend of 1900,
   Year: 1998,
   IsSeries: false,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: The Legend of 1900 (1998).mkv,
   Extension: .mkv

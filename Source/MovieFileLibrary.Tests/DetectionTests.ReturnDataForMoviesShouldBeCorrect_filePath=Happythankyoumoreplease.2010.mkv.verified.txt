@@ -2,6 +2,7 @@
   Title: Happythankyoumoreplease,
   Year: 2010,
   IsSeries: false,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Happythankyoumoreplease.2010.mkv,
   Extension: .mkv

@@ -3,6 +3,7 @@
   IsSeries: true,
   Season: 3,
   Episode: 2,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Sherlock S03 E02 [The Sign of Three] 720p.mp4,
   Extension: .mp4

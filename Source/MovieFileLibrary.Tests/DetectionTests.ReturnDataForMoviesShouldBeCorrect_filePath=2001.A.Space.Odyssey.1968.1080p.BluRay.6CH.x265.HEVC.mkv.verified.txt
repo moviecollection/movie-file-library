@@ -2,6 +2,7 @@
   Title: 2001 A Space Odyssey,
   Year: 1968,
   IsSeries: false,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: 2001.A.Space.Odyssey.1968.1080p.BluRay.6CH.x265.HEVC.mkv,
   Extension: .mkv

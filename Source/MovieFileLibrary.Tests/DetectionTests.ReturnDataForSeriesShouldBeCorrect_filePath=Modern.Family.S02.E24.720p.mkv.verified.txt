@@ -3,6 +3,7 @@
   IsSeries: true,
   Season: 2,
   Episode: 24,
+  IsSpecialEpisode: false,
   IsSuccess: true,
   Path: Modern.Family.S02.E24.720p.mkv,
   Extension: .mkv
