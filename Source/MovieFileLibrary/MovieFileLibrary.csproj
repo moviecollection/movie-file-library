@@ -14,6 +14,10 @@
         <DebugType>embedded</DebugType>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
     <PropertyGroup>
         <AnalysisLevel>latest</AnalysisLevel>
         <NoWarn>SA1633;SA1101;SA1309;CA1303</NoWarn>
@@ -29,7 +33,6 @@
     -->
 
     <PropertyGroup>
-        <Version>3.0.0-preview.1</Version>
         <Authors>Peyman Mohammadi</Authors>
         <PackageId>MovieFileLibrary</PackageId>
         <Copyright>© 2022 Peyman Mohammadi</Copyright>
