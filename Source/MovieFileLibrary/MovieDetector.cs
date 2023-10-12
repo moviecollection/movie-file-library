@@ -23,19 +23,9 @@
 
             // Get filename without extention and replace whitespaces with dots.
             string fileName = Path.GetFileName(filePath);
-            string value = Path.GetFileNameWithoutExtension(fileName).Replace(" ", ".");
+            string fileNameWx = Path.GetFileNameWithoutExtension(fileName);
 
-            // Normalize file name.
-            string[] removeStrs = new[] { "(", ")", "_", "-", "..", "–", "[", "]" };
-            foreach (string item in removeStrs)
-            {
-                if (value.Contains(item))
-                {
-                    value = value.Replace(item, ".");
-                }
-            }
-
-            string[] words = value.Split('.');
+            string[] words = GetNormalizedString(fileNameWx, ".").Split('.');
 
             // Choose the first word as part of the name.
             movieFile.Title = words[0];
@@ -163,6 +153,21 @@
             // Return MovieFile object
             movieFile.IsSuccess = true;
             return movieFile;
+        }
+
+        private static string GetNormalizedString(string str, string seperator)
+        {
+            var items = new[] { " ", "(", ")", "_", "-", "..", "–", "[", "]", "{", "}" };
+
+            foreach (string item in items)
+            {
+                if (str.Contains(item))
+                {
+                    str = str.Replace(item, seperator);
+                }
+            }
+
+            return str;
         }
 
         private static bool IsSeasonAndEpisodeWithX(string item)
