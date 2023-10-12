@@ -52,6 +52,11 @@
         public int? Episode { get; set; }
 
         /// <summary>
+        /// Gets or sets imdb id if exists.
+        /// </summary>
+        public string? ImdbId { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether it's a special episode.
         /// </summary>
         public bool IsSpecialEpisode { get; set; }

@@ -59,6 +59,18 @@ namespace MovieFileLibrary.Tests
         }
 
         [Theory]
+        [InlineData("Batman Begins (2005) {imdb-tt0372784}.mkv")]
+        [InlineData("Amelie.2001.1080p.BluRay.6CH.x265.HEVC.{imdb-tt0211915}.mkv")]
+        [InlineData("No.Time.to.Die.2021.1080p.10bit.BluRay.x265.[imdbid-tt2382320].mkv")]
+        public Task ShouldDetectIdsCorrectly(string filePath)
+        {
+            MovieFile movieFile = _detector.GetInfo(filePath);
+
+            return Verifier.Verify(movieFile)
+                .UseParameters(filePath);
+        }
+
+        [Theory]
         [InlineData("The.Rock.1996.1080p.Dubbed.mkv")]
         [InlineData("Duplicity.2009.1080p.Dubbed.mkv")]
         [InlineData("The.Lookout.2007.1080p.Dubbed.mkv")]

@@ -143,11 +143,24 @@
                 }
             }
 
-            var remaining = words.Skip(i + 1);
+            var remaining = words.Skip(i + 1).ToArray();
 
             if (movieFile.IsSeries && remaining.Any(x => x.Equals("Special", StringComparison.OrdinalIgnoreCase)))
             {
                 movieFile.IsSpecialEpisode = true;
+            }
+
+            // Find the imdb id (e.g. Batman Begins (2005) {imdb-tt0372784}.mkv).
+            var imdb1 = Array.FindIndex(remaining, t => t.Equals("imdb", StringComparison.OrdinalIgnoreCase));
+            var imdb2 = Array.FindIndex(remaining, t => t.Equals("imdbid", StringComparison.OrdinalIgnoreCase));
+
+            if (imdb1 >= 0)
+            {
+                movieFile.ImdbId = remaining.ElementAtOrDefault(imdb1 + 1);
+            }
+            else if (imdb2 >= 0)
+            {
+                movieFile.ImdbId = remaining.ElementAtOrDefault(imdb2 + 1);
             }
 
             // Return MovieFile object

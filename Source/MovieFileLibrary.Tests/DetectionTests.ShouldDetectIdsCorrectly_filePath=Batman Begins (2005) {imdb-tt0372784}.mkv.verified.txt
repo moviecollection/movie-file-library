@@ -1,0 +1,10 @@
+﻿{
+  Title: Batman Begins,
+  Year: 2005,
+  IsSeries: false,
+  ImdbId: tt0372784,
+  IsSpecialEpisode: false,
+  IsSuccess: true,
+  Path: Batman Begins (2005) {imdb-tt0372784}.mkv,
+  Extension: .mkv
+}

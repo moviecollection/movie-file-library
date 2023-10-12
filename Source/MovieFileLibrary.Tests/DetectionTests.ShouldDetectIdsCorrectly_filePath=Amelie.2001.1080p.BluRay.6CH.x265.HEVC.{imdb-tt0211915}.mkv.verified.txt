@@ -1,0 +1,10 @@
+﻿{
+  Title: Amelie,
+  Year: 2001,
+  IsSeries: false,
+  ImdbId: tt0211915,
+  IsSpecialEpisode: false,
+  IsSuccess: true,
+  Path: Amelie.2001.1080p.BluRay.6CH.x265.HEVC.{imdb-tt0211915}.mkv,
+  Extension: .mkv
+}

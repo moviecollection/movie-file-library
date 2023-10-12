@@ -1,0 +1,10 @@
+﻿{
+  Title: No Time to Die,
+  Year: 2021,
+  IsSeries: false,
+  ImdbId: tt2382320,
+  IsSpecialEpisode: false,
+  IsSuccess: true,
+  Path: No.Time.to.Die.2021.1080p.10bit.BluRay.x265.[imdbid-tt2382320].mkv,
+  Extension: .mkv
+}
