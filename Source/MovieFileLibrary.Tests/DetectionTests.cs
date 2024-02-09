@@ -5,7 +5,6 @@ using Xunit;
 
 namespace MovieFileLibrary.Tests
 {
-    [UsesVerify]
     public class DetectionTests
     {
         private readonly MovieDetector _detector;
