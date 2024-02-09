@@ -1,0 +1,28 @@
+﻿[assembly: System.Reflection.AssemblyMetadata("RepositoryUrl", "https://github.com/moviecollection/movie-file-library")]
+[assembly: System.Runtime.Versioning.TargetFramework(".NETStandard,Version=v2.0", FrameworkDisplayName=".NET Standard 2.0")]
+namespace MovieFileLibrary
+{
+    public interface IMovieDetector
+    {
+        MovieFileLibrary.MovieFile GetInfo(string filePath);
+    }
+    public class MovieDetector : MovieFileLibrary.IMovieDetector
+    {
+        public MovieDetector() { }
+        public MovieFileLibrary.MovieFile GetInfo(string filePath) { }
+    }
+    public class MovieFile
+    {
+        public MovieFile(string filePath) { }
+        public int? Episode { get; set; }
+        public string? Extension { get; }
+        public string? ImdbId { get; set; }
+        public bool IsSeries { get; set; }
+        public bool IsSpecialEpisode { get; set; }
+        public bool IsSuccess { get; set; }
+        public string Path { get; }
+        public int? Season { get; set; }
+        public string? Title { get; set; }
+        public string? Year { get; set; }
+    }
+}
