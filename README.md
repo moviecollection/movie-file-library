@@ -1,57 +1,87 @@
 # MovieFileLibrary
-MovieFileLibrary helps you get basic information from a movie file's name. 
 
-[![Nuget Version][nuget-shield]][nuget]
-[![Nuget Downloads][nuget-shield-dl]][nuget]
+A dotnet library for extracting basic information from a movie file name.
+
+[![NuGet Version][nuget-shield]][nuget]
+[![NuGet Downloads][nuget-shield-dl]][nuget]
 
 ## Installing
-You can install this package by entering the following command into your `Package Manager Console`:
+
+You can install this package via the `Package Manager Console`:
+
 ```powershell
 Install-Package MovieFileLibrary
 ```
 
 ## How to use
-This example shows you how to use `MovieFileLibrary` in your project:
+
+Create a new instance of the `MovieDetector` class:
+
 ```csharp
-// Create a new instance of the MovieDetector class.
-var movieDetector = new MovieFileLibrary.MovieDetector();
-
-// Define a test file path.
-string filePath = "D:\\Monty Python's Flying Circus\\Season 3\\Monty.Pythons.Flying.Circus.S03.E04.avi";
-
-// Call GetInfo to process the filename.
-MovieFileLibrary.MovieFile movieFile = movieDetector.GetInfo(filePath);
-
-// Print the results.
-Console.WriteLine("Title: {0}", movieFile.Title);
-Console.WriteLine("Year: {0}", movieFile.Year);
-    
-if (movieFile.IsSeries)
-{
-    Console.WriteLine("IsSeries: {0}", movieFile.IsSeries);
-    Console.WriteLine("Season: {0}", movieFile.Season);
-    Console.WriteLine("Episode: {0}", movieFile.Episode);
-}
-
-Console.WriteLine("Path: {0}", movieFile.Path);
-Console.WriteLine("Extension: {0}", movieFile.Extension);
-Console.WriteLine("IsSuccess: {0}", movieFile.IsSuccess);   
+// using MovieFileLibrary;
+var detector = new MovieDetector();
 ```
-### Result:
+
+### Movies
+
+You can get the `Title` and `Year` of a movie via the `GetInfo` method:
+
+```csharp
+var movieFile = detector.GetInfo("D:\\Oppenheimer.2023.1080p.mkv");
+
+// Title: Oppenheimer
+// Year: 2023
 ```
-Title: Monty Pythons Flying Circus
-Year: null
-IsSeries: True
-Season: 3
-Episode: 4
-Path: D:\Monty Python's Flying Circus\Season 3\Monty.Pythons.Flying.Circus.S03.E04.avi
-Extension: .avi
-IsSuccess: True
+
+### Series
+
+You can also get the `Season` and `Episode` of a tv show:
+
+```csharp
+var movieFile = detector.GetInfo("D:\\Frasier.S06E22.1080p.mp4");
+
+// Title: Frasier
+// Year: null
+// IsSeries: True
+// Season: 6
+// Episode: 22
 ```
+
+### IMDb
+
+You can also get the `ImdbId` of a movie:
+
+```csharp
+var movieFile = detector.GetInfo("D:\\Amelie.2001.1080p.{imdb-tt0211915}.mkv");
+
+// Title: Amelie
+// Year: 2001
+// ImdbId: tt0211915
+```
+
+Other styles are also supported:
+
+```csharp
+var movieFile = detector.GetInfo("D:\\No.Time.to.Die.2021.1080p.[imdbid-tt2382320].mkv");
+
+// Title: No Time to Die
+// Year: 2021
+// ImdbId: tt2382320
+```
+
+### More Examples
+
+Please see the demo project for more examples.
+
+## Changelog
+
+Please visit the [releases][releases] for more information.
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE).
 
 [nuget]: https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest
 [nuget-shield]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=Preview
 [nuget-shield-dl]: https://img.shields.io/nuget/dt/MovieFileLibrary?label=Downloads&color=red
+[releases]: https://github.com/moviecollection/movie-file-library/releases

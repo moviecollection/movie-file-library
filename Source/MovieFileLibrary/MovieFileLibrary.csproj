@@ -36,6 +36,7 @@
         <Authors>Peyman Mohammadi</Authors>
         <PackageId>MovieFileLibrary</PackageId>
         <Copyright>© 2022 Peyman Mohammadi</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>movie; series; detect; file</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -43,6 +44,10 @@
         <PackageProjectUrl>https://github.com/moviecollection/movie-file-library</PackageProjectUrl>
         <Description>A library for extracting basic information from a movie file name.</Description>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
