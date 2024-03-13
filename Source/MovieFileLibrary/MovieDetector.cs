@@ -1,6 +1,7 @@
 ﻿namespace MovieFileLibrary
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
@@ -88,13 +89,19 @@
                     movieFile.IsSeries = true;
                     movieFile.Season = seasonvalue;
 
-                    // Check if we have an episode value.
-                    if (sp.Length >= 2)
-                    {
-                        // Same TryParse method
-                        bool episodeResult = int.TryParse(sp[1], out int episodevalue);
-                        movieFile.Episode = episodevalue;
+                    var episodes = new List<int>();
 
+                    foreach (var episode in sp.Skip(1))
+                    {
+                        if (int.TryParse(episode, out int value))
+                        {
+                            episodes.Add(value);
+                        }
+                    }
+
+                    if (episodes.Count != 0)
+                    {
+                        movieFile.Episode = episodes.First();
                         break;
                     }
 
@@ -113,8 +120,10 @@
                     string e = item.Substring(1, item.Length - 1).ToUpperInvariant();
 
                     // Get the numeric value.
-                    bool episodeResult = int.TryParse(e, out int episodevalue);
-                    movieFile.Episode = episodevalue;
+                    if (int.TryParse(e, out int episodevalue))
+                    {
+                        movieFile.Episode = episodevalue;
+                    }
 
                     break;
                 }
