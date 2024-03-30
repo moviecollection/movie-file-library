@@ -65,11 +65,12 @@
                 }
                 else if (IsSeason(item))
                 {
-                    var separator = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
+                    var sepSeason = item.IndexOf("Se", StringComparison.OrdinalIgnoreCase) >= 0 ? "SE" : "S";
+                    var sepEpisode = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
 
                     // Normal.People.S01E04.1080p.mkv
-                    string[] sp = item.Substring(1, item.Length - 1).ToUpperInvariant()
-                        .Split(new[] { separator }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] sp = item.Substring(sepSeason.Length, item.Length - sepSeason.Length).ToUpperInvariant()
+                        .Split(new[] { sepEpisode }, StringSplitOptions.RemoveEmptyEntries);
 
                     if (!int.TryParse(sp[0], out int season))
                     {
@@ -195,14 +196,14 @@
 
         private static bool IsSeason(string item)
         {
-            // S01E01
-            if (Regex.IsMatch(item, @"^S([0-9]{1,2})Ep?([0-9]{1,2})", RegexOptions.IgnoreCase))
+            // S01E01, Se02Ep01
+            if (Regex.IsMatch(item, @"^Se?([0-9]{1,2})Ep?([0-9]{1,2})", RegexOptions.IgnoreCase))
             {
                 return true;
             }
 
-            // S01
-            if (Regex.IsMatch(item, @"^S([0-9]{1,2})$", RegexOptions.IgnoreCase))
+            // S01, Se02
+            if (Regex.IsMatch(item, @"^Se?([0-9]{1,2})$", RegexOptions.IgnoreCase))
             {
                 return true;
             }
