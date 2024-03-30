@@ -1,0 +1,10 @@
+﻿{
+  Title: Frasier,
+  IsSeries: true,
+  Season: 9,
+  Episode: 15,
+  IsSpecialEpisode: false,
+  IsSuccess: true,
+  Path: Frasier.S09Ep15.1080p.mp4,
+  Extension: .mp4
+}

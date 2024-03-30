@@ -73,10 +73,13 @@
                 }
                 else if (IsSeason(item))
                 {
+                    var separator = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
+
                     // In this case we have a "S" in words that indicates season number for a tv series.
                     // Remove Season indicator from current item then split the item using "e" to get episode numeric value.
                     // This is for cases where Season and Episode values are squashed together (e.g. MovieName.S01E02).
-                    string[] sp = item.Substring(1, item.Length - 1).ToUpperInvariant().Split('E');
+                    string[] sp = item.Substring(1, item.Length - 1).ToUpperInvariant()
+                        .Split(new[] { separator }, StringSplitOptions.RemoveEmptyEntries);
 
                     if (!int.TryParse(sp[0], out int seasonvalue))
                     {
@@ -112,12 +115,14 @@
                 }
                 else if (IsEpisode(item))
                 {
+                    var separator = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
+
                     // In this case we have a episode indicator.
                     // This case happens when season number and episode number are separated (e.g MovieName.S05.E08).
                     movieFile.IsSeries = true;
 
                     // Remove episode indicator character.
-                    string e = item.Substring(1, item.Length - 1).ToUpperInvariant();
+                    string e = item.Substring(separator.Length, item.Length - separator.Length).ToUpperInvariant();
 
                     // Get the numeric value.
                     if (int.TryParse(e, out int episodevalue))
@@ -210,7 +215,7 @@
         private static bool IsSeason(string item)
         {
             // e.g. S01E01
-            if (Regex.IsMatch(item, @"^S([0-9]{1,2})E([0-9]{1,2})", RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(item, @"^S([0-9]{1,2})Ep?([0-9]{1,2})", RegexOptions.IgnoreCase))
             {
                 return true;
             }
@@ -231,12 +236,7 @@
         /// <returns>true if the value indicates an episode value.</returns>
         private static bool IsEpisode(string item)
         {
-            if (string.IsNullOrWhiteSpace(item))
-            {
-                return false;
-            }
-
-            return char.ToUpperInvariant(item[0]) == 'E' && item.Length > 1 && char.IsNumber(item[1]);
+            return Regex.IsMatch(item, @"^Ep?([0-9]{1,2})", RegexOptions.IgnoreCase);
         }
 
         /// <summary>
