@@ -19,21 +19,15 @@
                 throw new ArgumentException($"'{nameof(filePath)}' cannot be null or whitespace", nameof(filePath));
             }
 
-            // Create a MovieFile object and set the filepath via constructor.
             var movieFile = new MovieFile(filePath);
 
-            // Get filename without extention and replace whitespaces with dots.
             string fileName = Path.GetFileName(filePath);
             string fileNameWx = Path.GetFileNameWithoutExtension(fileName);
 
             string[] words = GetNormalizedString(fileNameWx, ".").Split('.');
 
-            // Choose the first word as part of the name.
+            // Usually the first item is part of the title.
             movieFile.Title = words[0];
-            movieFile.Year = null;
-            movieFile.Season = null;
-            movieFile.Episode = null;
-            movieFile.IsSeries = false;
 
             int i;
             for (i = 1; i < words.Length; i++)
@@ -45,27 +39,25 @@
                     continue;
                 }
 
-                // Check if current item is a Year value or a Season value or a Episode value.
                 if (IsYear(item))
                 {
-                    // Check for movies with year in name [e.g The Legend of 1900 (1998)].
-                    // Skip first item to avoid issues with movies like "2001: A Space Odyssey (1968)".
-                    // Also Skip current item and get the last one.
-                    string lastYear = words.Skip(1).Where(x => IsYear(x) && x != item).LastOrDefault();
+                    // The Legend of 1900 (1998)
+                    // 2001: A Space Odyssey (1968)
+                    string lastYear = words.Skip(1)
+                        .Where(x => IsYear(x) && x != item)
+                        .LastOrDefault();
 
                     if (lastYear is null)
                     {
-                        // We don't have another year in filename, so we use the current one.
                         movieFile.Year = item;
                     }
                     else
                     {
-                        // We have another year value, therefore treat the current item as part of movie title.
                         movieFile.Year = lastYear;
                         movieFile.Title += " " + item;
                     }
 
-                    // For cases that we have year in series file name!
+                    // Scenes.from.a.Marriage.1973.E01.mkv
                     if (!IsSeasonPresent(words) && !IsEpisodePresent(words))
                     {
                         break;
@@ -75,13 +67,11 @@
                 {
                     var separator = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
 
-                    // In this case we have a "S" in words that indicates season number for a tv series.
-                    // Remove Season indicator from current item then split the item using "e" to get episode numeric value.
-                    // This is for cases where Season and Episode values are squashed together (e.g. MovieName.S01E02).
+                    // Normal.People.S01E04.1080p.mkv
                     string[] sp = item.Substring(1, item.Length - 1).ToUpperInvariant()
                         .Split(new[] { separator }, StringSplitOptions.RemoveEmptyEntries);
 
-                    if (!int.TryParse(sp[0], out int seasonvalue))
+                    if (!int.TryParse(sp[0], out int season))
                     {
                         movieFile.Season = null;
                         movieFile.Episode = null;
@@ -90,7 +80,7 @@
                     }
 
                     movieFile.IsSeries = true;
-                    movieFile.Season = seasonvalue;
+                    movieFile.Season = season;
 
                     var episodes = new List<int>();
 
@@ -117,27 +107,26 @@
                 {
                     var separator = item.IndexOf("Ep", StringComparison.OrdinalIgnoreCase) >= 0 ? "EP" : "E";
 
-                    // In this case we have a episode indicator.
-                    // This case happens when season number and episode number are separated (e.g MovieName.S05.E08).
+                    // The.Grand.Tour.S04.E04.1080p.mkv
                     movieFile.IsSeries = true;
 
-                    // Remove episode indicator character.
                     string e = item.Substring(separator.Length, item.Length - separator.Length).ToUpperInvariant();
 
-                    // Get the numeric value.
-                    if (int.TryParse(e, out int episodevalue))
+                    if (int.TryParse(e, out int episode))
                     {
-                        movieFile.Episode = episodevalue;
+                        movieFile.Episode = episode;
                     }
 
                     break;
                 }
                 else if (IsSeasonAndEpisodeWithX(item))
                 {
-                    // For cases where Season and Episode values are seperated by a "x" character.
+                    // Top Gear 17x03 HDTV.mp4
                     string[] split = item.ToUpperInvariant().Split('X');
 
-                    if (split.Length == 2 && int.TryParse(split[0], out int seasonValue) && int.TryParse(split[1], out int episodeValue))
+                    if (split.Length == 2 &&
+                        int.TryParse(split[0], out int seasonValue) &&
+                        int.TryParse(split[1], out int episodeValue))
                     {
                         movieFile.IsSeries = true;
                         movieFile.Season = seasonValue;
@@ -146,13 +135,11 @@
                         break;
                     }
 
-                    // Treat current item as part of the movie title.
                     movieFile.Title += " " + item;
                     continue;
                 }
                 else
                 {
-                    // It's [probably] part of movie name.
                     movieFile.Title += " " + item;
                 }
             }
@@ -177,12 +164,11 @@
                 movieFile.ImdbId = remaining.ElementAtOrDefault(imdb2 + 1);
             }
 
-            // Return MovieFile object
             movieFile.IsSuccess = true;
             return movieFile;
         }
 
-        private static string GetNormalizedString(string str, string seperator)
+        private static string GetNormalizedString(string str, string separator)
         {
             var items = new[] { " ", "(", ")", "_", "-", "..", "–", "[", "]", "{", "}" };
 
@@ -190,7 +176,7 @@
             {
                 if (str.Contains(item))
                 {
-                    str = str.Replace(item, seperator);
+                    str = str.Replace(item, separator);
                 }
             }
 
@@ -207,20 +193,15 @@
             return Regex.IsMatch(item, "^(19|20)[0-9][0-9]");
         }
 
-        /// <summary>
-        /// Check if we have Season indicator in a string (e.g: S02 or S3).
-        /// </summary>
-        /// <param name="item">The string to test.</param>
-        /// <returns>true if the value indicates an season value.</returns>
         private static bool IsSeason(string item)
         {
-            // e.g. S01E01
+            // S01E01
             if (Regex.IsMatch(item, @"^S([0-9]{1,2})Ep?([0-9]{1,2})", RegexOptions.IgnoreCase))
             {
                 return true;
             }
 
-            // e.g. S01
+            // S01
             if (Regex.IsMatch(item, @"^S([0-9]{1,2})$", RegexOptions.IgnoreCase))
             {
                 return true;
@@ -229,31 +210,16 @@
             return false;
         }
 
-        /// <summary>
-        /// Check if we have Episode indicator in a string (Like: E02 or E3).
-        /// </summary>
-        /// <param name="item">The string to test.</param>
-        /// <returns>true if the value indicates an episode value.</returns>
         private static bool IsEpisode(string item)
         {
             return Regex.IsMatch(item, @"^Ep?([0-9]{1,2})", RegexOptions.IgnoreCase);
         }
 
-        /// <summary>
-        /// Check if Season indicator presents on a string array.
-        /// </summary>
-        /// <param name="words">An array to test.</param>
-        /// <returns>true if array contains an season indicator value.</returns>
         private static bool IsSeasonPresent(string[] words)
         {
             return words.Any(x => IsSeason(x));
         }
 
-        /// <summary>
-        /// Check if Episode indicator presents on a string array.
-        /// </summary>
-        /// <param name="words">An array to test.</param>
-        /// <returns>true if array contains an episode indicator value.</returns>
         private static bool IsEpisodePresent(string[] words)
         {
             return words.Any(x => IsEpisode(x));
