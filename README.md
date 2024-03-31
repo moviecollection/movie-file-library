@@ -82,6 +82,6 @@ Please visit the [releases][releases] for more information.
 This project is licensed under the [MIT License](LICENSE).
 
 [nuget]: https://www.nuget.org/packages/MovieFileLibrary/absoluteLatest
-[nuget-shield]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=Preview
+[nuget-shield]: https://img.shields.io/nuget/vpre/MovieFileLibrary?label=NuGet
 [nuget-shield-dl]: https://img.shields.io/nuget/dt/MovieFileLibrary?label=Downloads&color=red
 [releases]: https://github.com/moviecollection/movie-file-library/releases
