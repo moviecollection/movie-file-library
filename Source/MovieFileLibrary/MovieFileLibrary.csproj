@@ -19,8 +19,8 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <AnalysisLevel>latest</AnalysisLevel>
-        <NoWarn>SA1633;SA1101;SA1309;CA1303</NoWarn>
+        <AnalysisLevel>latest-all</AnalysisLevel>
+        <NoWarn>$(NoWarn);SA1633;SA1101;SA1309;CA1303</NoWarn>
         <WarningsAsErrors>nullable</WarningsAsErrors>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
     </PropertyGroup>
@@ -46,7 +46,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>

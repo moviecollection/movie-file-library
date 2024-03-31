@@ -15,7 +15,6 @@
         /// Thrown when <paramref name="filePath"/> is null or whitespace.
         /// </exception>
         public MovieFile(string filePath)
-            : base()
         {
             if (string.IsNullOrWhiteSpace(filePath))
             {
