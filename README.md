@@ -5,24 +5,24 @@ A dotnet library for extracting basic information from a movie file name.
 [![NuGet Version][nuget-shield]][nuget]
 [![NuGet Downloads][nuget-shield-dl]][nuget]
 
-## Installing
+## Installation
 
-You can install this package via the `Package Manager Console`:
+You can install this package via the `Package Manager Console` in Visual Studio.
 
 ```powershell
 Install-Package MovieFileLibrary
 ```
 
-## How to use
+## Configuration
 
-Create a new instance of the `MovieDetector` class:
+Create a new instance of the `MovieDetector` class.
 
 ```csharp
 // using MovieFileLibrary;
 var detector = new MovieDetector();
 ```
 
-### Movies
+## Movies
 
 You can get the `Title` and `Year` of a movie via the `GetInfo` method:
 
@@ -33,7 +33,7 @@ var movieFile = detector.GetInfo("D:\\Oppenheimer.2023.1080p.mkv");
 // Year: 2023
 ```
 
-### Series
+## Series
 
 You can also get the `Season` and `Episode` of a tv show:
 
@@ -47,7 +47,7 @@ var movieFile = detector.GetInfo("D:\\Frasier.S06E22.1080p.mp4");
 // Episode: 22
 ```
 
-### IMDb
+## IMDb
 
 You can also get the `ImdbId` of a movie:
 
@@ -69,7 +69,7 @@ var movieFile = detector.GetInfo("D:\\No.Time.to.Die.2021.1080p.[imdbid-tt238232
 // ImdbId: tt2382320
 ```
 
-### More Examples
+## More Examples
 
 Please see the demo project for more examples.
 
