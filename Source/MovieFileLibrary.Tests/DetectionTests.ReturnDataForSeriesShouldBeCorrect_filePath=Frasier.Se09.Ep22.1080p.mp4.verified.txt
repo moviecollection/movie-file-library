@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 22,
   IsSpecialEpisode: false,
+  Episodes: [
+    22
+  ],
   IsSuccess: true,
   Path: Frasier.Se09.Ep22.1080p.mp4,
   Extension: .mp4

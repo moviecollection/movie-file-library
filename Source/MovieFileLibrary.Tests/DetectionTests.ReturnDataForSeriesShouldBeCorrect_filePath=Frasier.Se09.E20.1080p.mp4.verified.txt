@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 20,
   IsSpecialEpisode: false,
+  Episodes: [
+    20
+  ],
   IsSuccess: true,
   Path: Frasier.Se09.E20.1080p.mp4,
   Extension: .mp4

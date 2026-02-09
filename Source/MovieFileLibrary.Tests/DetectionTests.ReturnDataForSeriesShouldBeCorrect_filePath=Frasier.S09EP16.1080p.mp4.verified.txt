@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 16,
   IsSpecialEpisode: false,
+  Episodes: [
+    16
+  ],
   IsSuccess: true,
   Path: Frasier.S09EP16.1080p.mp4,
   Extension: .mp4

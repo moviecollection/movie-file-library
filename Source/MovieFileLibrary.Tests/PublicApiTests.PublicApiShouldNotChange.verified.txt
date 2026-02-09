@@ -14,7 +14,8 @@ namespace MovieFileLibrary
     public class MovieFile
     {
         public MovieFile(string filePath) { }
-        public int? Episode { get; set; }
+        public int? Episode { get; }
+        public System.Collections.ObjectModel.ReadOnlyCollection<int> Episodes { get; }
         public string? Extension { get; }
         public string? ImdbId { get; set; }
         public bool IsSeries { get; set; }
@@ -24,5 +25,6 @@ namespace MovieFileLibrary
         public int? Season { get; set; }
         public string? Title { get; set; }
         public string? Year { get; set; }
+        public void AddEpisode(int episode) { }
     }
 }

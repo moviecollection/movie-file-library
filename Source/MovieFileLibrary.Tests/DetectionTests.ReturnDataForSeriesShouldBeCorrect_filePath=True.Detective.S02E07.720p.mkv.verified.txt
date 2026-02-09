@@ -4,6 +4,9 @@
   Season: 2,
   Episode: 7,
   IsSpecialEpisode: false,
+  Episodes: [
+    7
+  ],
   IsSuccess: true,
   Path: True.Detective.S02E07.720p.mkv,
   Extension: .mkv

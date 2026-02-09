@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 18,
   IsSpecialEpisode: false,
+  Episodes: [
+    18
+  ],
   IsSuccess: true,
   Path: Frasier.S09.EP18.1080p.mp4,
   Extension: .mp4

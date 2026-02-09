@@ -1,12 +1,16 @@
 ﻿namespace MovieFileLibrary
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// A <c>MovieFile</c> represents information about a movie file.
     /// </summary>
     public class MovieFile
     {
+        private readonly List<int> _episodes = [];
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieFile"/> class.
         /// </summary>
@@ -46,9 +50,9 @@
         public int? Season { get; set; }
 
         /// <summary>
-        /// Gets or sets series episode number if exists.
+        /// Gets the series episode number or null.
         /// </summary>
-        public int? Episode { get; set; }
+        public int? Episode => _episodes.Count == 0 ? null : _episodes[0];
 
         /// <summary>
         /// Gets or sets imdb id if exists.
@@ -59,6 +63,11 @@
         /// Gets or sets a value indicating whether it's a special episode.
         /// </summary>
         public bool IsSpecialEpisode { get; set; }
+
+        /// <summary>
+        /// Gets the series episode numbers.
+        /// </summary>
+        public ReadOnlyCollection<int> Episodes => _episodes.AsReadOnly();
 
         /// <summary>
         /// Gets or sets a value indicating whether detection was successful.
@@ -74,5 +83,14 @@
         /// Gets extension of the movie file.
         /// </summary>
         public string? Extension { get; private set; }
+
+        /// <summary>
+        /// Adds an episode to the end of the episode numbers collection.
+        /// </summary>
+        /// <param name="episode">The episode number.</param>
+        public void AddEpisode(int episode)
+        {
+            _episodes.Add(episode);
+        }
     }
 }

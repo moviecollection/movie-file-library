@@ -5,6 +5,9 @@
   Season: 6,
   Episode: 19,
   IsSpecialEpisode: false,
+  Episodes: [
+    19
+  ],
   IsSuccess: true,
   Path: Twisted.2013.S06E19.mp4,
   Extension: .mp4

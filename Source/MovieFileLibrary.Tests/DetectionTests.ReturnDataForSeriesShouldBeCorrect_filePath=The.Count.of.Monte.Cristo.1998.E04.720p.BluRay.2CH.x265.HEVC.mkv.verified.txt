@@ -4,6 +4,9 @@
   IsSeries: true,
   Episode: 4,
   IsSpecialEpisode: false,
+  Episodes: [
+    4
+  ],
   IsSuccess: true,
   Path: The.Count.of.Monte.Cristo.1998.E04.720p.BluRay.2CH.x265.HEVC.mkv,
   Extension: .mkv

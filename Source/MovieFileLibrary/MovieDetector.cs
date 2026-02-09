@@ -1,7 +1,6 @@
 ﻿namespace MovieFileLibrary
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
@@ -74,35 +73,26 @@
 
                     if (!int.TryParse(sp[0], out int season))
                     {
-                        movieFile.Season = null;
-                        movieFile.Episode = null;
-                        movieFile.IsSeries = false;
                         break;
                     }
 
                     movieFile.IsSeries = true;
                     movieFile.Season = season;
 
-                    var episodes = new List<int>();
-
                     foreach (var episode in sp.Skip(1))
                     {
                         if (int.TryParse(episode, out int value))
                         {
-                            episodes.Add(value);
+                            movieFile.AddEpisode(value);
                         }
                     }
 
-                    if (episodes.Count != 0)
+                    if (IsEpisodePresent(words))
                     {
-                        movieFile.Episode = episodes.First();
-                        break;
+                        continue;
                     }
 
-                    if (!IsEpisodePresent(words))
-                    {
-                        break;
-                    }
+                    break;
                 }
                 else if (IsEpisode(item))
                 {
@@ -115,7 +105,7 @@
 
                     if (int.TryParse(e, out int episode))
                     {
-                        movieFile.Episode = episode;
+                        movieFile.AddEpisode(episode);
                     }
 
                     break;
@@ -131,7 +121,7 @@
                     {
                         movieFile.IsSeries = true;
                         movieFile.Season = seasonValue;
-                        movieFile.Episode = episodeValue;
+                        movieFile.AddEpisode(episodeValue);
 
                         break;
                     }

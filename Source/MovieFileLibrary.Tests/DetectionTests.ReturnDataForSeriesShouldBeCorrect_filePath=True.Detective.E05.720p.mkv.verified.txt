@@ -3,6 +3,9 @@
   IsSeries: true,
   Episode: 5,
   IsSpecialEpisode: false,
+  Episodes: [
+    5
+  ],
   IsSuccess: true,
   Path: True.Detective.E05.720p.mkv,
   Extension: .mkv

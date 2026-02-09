@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 19,
   IsSpecialEpisode: false,
+  Episodes: [
+    19
+  ],
   IsSuccess: true,
   Path: Frasier.Se09E19.1080p.mp4,
   Extension: .mp4

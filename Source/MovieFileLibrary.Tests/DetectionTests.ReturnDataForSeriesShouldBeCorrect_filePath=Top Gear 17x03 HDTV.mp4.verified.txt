@@ -4,6 +4,9 @@
   Season: 17,
   Episode: 3,
   IsSpecialEpisode: false,
+  Episodes: [
+    3
+  ],
   IsSuccess: true,
   Path: Top Gear 17x03 HDTV.mp4,
   Extension: .mp4

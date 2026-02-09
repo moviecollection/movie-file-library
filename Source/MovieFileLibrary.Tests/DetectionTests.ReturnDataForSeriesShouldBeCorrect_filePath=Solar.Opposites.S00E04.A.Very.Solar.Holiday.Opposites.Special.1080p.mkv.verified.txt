@@ -4,6 +4,9 @@
   Season: 0,
   Episode: 4,
   IsSpecialEpisode: true,
+  Episodes: [
+    4
+  ],
   IsSuccess: true,
   Path: Solar.Opposites.S00E04.A.Very.Solar.Holiday.Opposites.Special.1080p.mkv,
   Extension: .mkv

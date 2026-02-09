@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 21,
   IsSpecialEpisode: false,
+  Episodes: [
+    21
+  ],
   IsSuccess: true,
   Path: Frasier.Se09Ep21.1080p.mp4,
   Extension: .mp4

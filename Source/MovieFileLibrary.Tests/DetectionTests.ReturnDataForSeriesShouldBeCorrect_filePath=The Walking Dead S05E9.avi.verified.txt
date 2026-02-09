@@ -4,6 +4,9 @@
   Season: 5,
   Episode: 9,
   IsSpecialEpisode: false,
+  Episodes: [
+    9
+  ],
   IsSuccess: true,
   Path: The Walking Dead S05E9.avi,
   Extension: .avi

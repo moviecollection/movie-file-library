@@ -4,6 +4,10 @@
   Season: 10,
   Episode: 17,
   IsSpecialEpisode: false,
+  Episodes: [
+    17,
+    18
+  ],
   IsSuccess: true,
   Path: Seinfeld.S10E17-E18.720p.mkv,
   Extension: .mkv

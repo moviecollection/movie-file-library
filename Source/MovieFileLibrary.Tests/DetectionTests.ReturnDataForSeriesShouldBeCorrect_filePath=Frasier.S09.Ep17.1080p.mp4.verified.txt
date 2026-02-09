@@ -4,6 +4,9 @@
   Season: 9,
   Episode: 17,
   IsSpecialEpisode: false,
+  Episodes: [
+    17
+  ],
   IsSuccess: true,
   Path: Frasier.S09.Ep17.1080p.mp4,
   Extension: .mp4
