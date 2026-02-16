@@ -20,17 +20,9 @@
 
     <PropertyGroup>
         <AnalysisLevel>latest-all</AnalysisLevel>
-        <NoWarn>$(NoWarn);SA1633;SA1101;SA1309;CA1303</NoWarn>
         <WarningsAsErrors>nullable</WarningsAsErrors>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
     </PropertyGroup>
-
-    <!--
-    SA1633: The file header is missing or not located at the top of the file.
-    SA1101: Prefix local calls with this.
-    SA1309: Field should not begin with an underscore.
-    CA1303: Do not pass literals as localized parameters.
-    -->
 
     <PropertyGroup>
         <Authors>Peyman Mohammadi</Authors>
@@ -51,10 +43,6 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
