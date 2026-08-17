@@ -3,7 +3,7 @@ var configuration = Argument("configuration", "Release");
 
 var version = Argument("package-version", "");
 
-var solution = "./Source/MovieFileLibrary.slnx";
+var source = "./Source";
 var artifacts = "./.artifacts";
 
 Task("Clean")
@@ -17,9 +17,10 @@ Task("Build")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    DotNetBuild(solution, new DotNetBuildSettings
+    DotNetBuild("MovieFileLibrary.slnx", new DotNetBuildSettings
     {
         NoIncremental = true,
+        WorkingDirectory = source,
         Configuration = configuration,
     });
 });
@@ -28,9 +29,10 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    DotNetTest(solution, new DotNetTestSettings
+    DotNetTest("MovieFileLibrary.Tests/MovieFileLibrary.Tests.csproj", new DotNetTestSettings
     {
         NoBuild = true,
+        WorkingDirectory = source,
         Configuration = configuration,
     });
 });
@@ -58,9 +60,10 @@ Task("Pack")
         actualVersion = version.Substring(1);
     }
 
-    DotNetPack(solution, new DotNetPackSettings
+    DotNetPack("MovieFileLibrary.slnx", new DotNetPackSettings
     {
         NoRestore = true,
+        WorkingDirectory = source,
         OutputDirectory = artifacts,
         Configuration = configuration,
         MSBuildSettings = new DotNetMSBuildSettings()
